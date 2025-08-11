@@ -1,0 +1,177 @@
+
+# Continuous Integration workflow
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  lint-and-typecheck:
+    name: Lint and Type Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'yarn'
+        cache-dependency-path: 'app/yarn.lock'
+        
+    - name: Install dependencies
+      run: |
+        cd app
+        yarn install --frozen-lockfile
+        
+    - name: Generate Prisma client
+      run: |
+        cd app
+        npx prisma generate
+        
+    - name: Run ESLint
+      run: |
+        cd app
+        yarn lint
+        
+    - name: Run TypeScript type check
+      run: |
+        cd app
+        yarn tsc --noEmit
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: ai_rfp_scanner_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'yarn'
+        cache-dependency-path: 'app/yarn.lock'
+        
+    - name: Install dependencies
+      run: |
+        cd app
+        yarn install --frozen-lockfile
+        
+    - name: Setup test environment
+      run: |
+        cd app
+        cp .env.example .env.test
+        echo "DATABASE_URL=postgresql://postgres:postgres@localhost:5432/ai_rfp_scanner_test" >> .env.test
+        
+    - name: Generate Prisma client and run migrations
+      run: |
+        cd app
+        npx prisma generate
+        npx prisma db push
+        
+    - name: Run tests
+      run: |
+        cd app
+        yarn test
+        
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results
+        path: |
+          app/coverage/
+          app/test-results.xml
+
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'yarn'
+        cache-dependency-path: 'app/yarn.lock'
+        
+    - name: Install dependencies
+      run: |
+        cd app
+        yarn install --frozen-lockfile
+        
+    - name: Generate Prisma client
+      run: |
+        cd app
+        npx prisma generate
+        
+    - name: Build application
+      run: |
+        cd app
+        yarn build
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-artifacts
+        path: |
+          app/.next/
+          app/public/
+        retention-days: 7
+
+  dependency-check:
+    name: Dependency Vulnerability Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'yarn'
+        cache-dependency-path: 'app/yarn.lock'
+        
+    - name: Install dependencies
+      run: |
+        cd app
+        yarn install --frozen-lockfile
+        
+    - name: Check for vulnerabilities
+      run: |
+        cd app
+        yarn audit --level moderate
+        
+    - name: Check for outdated dependencies
+      run: |
+        cd app
+        yarn outdated || true

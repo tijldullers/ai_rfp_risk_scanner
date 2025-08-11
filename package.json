@@ -4,6 +4,10 @@
   "version": "2.0.0",
   "description": "Comprehensive AI RFP risk analysis tool with regulatory compliance mapping",
   "main": "app/server.js",
+  "private": true,
+  "workspaces": [
+    "app"
+  ],
   "scripts": {
     "dev": "cd app && yarn dev",
     "build": "cd app && yarn build",
@@ -44,6 +48,12 @@
     "node": ">=18.0.0",
     "yarn": ">=1.22.0"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "app": "workspace:*"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "cross-env": "^7.0.3"
+  },
+  "packageManager": "yarn@1.22.22"
 }
