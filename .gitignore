@@ -1,0 +1,13 @@
+# Ignore everything in the uploads/ subfolder
+uploads/
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore other common system/editor files (optional)
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+node_modules/
