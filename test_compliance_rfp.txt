@@ -1,0 +1,36 @@
+
+AI CHATBOT PROCUREMENT REQUEST FOR PROPOSAL
+
+Project Overview:
+We are seeking an AI-powered customer service chatbot solution that will handle sensitive customer data including personal information, financial records, and insurance claims. The system must comply with GDPR, NIS2, DORA, and EU AI Act requirements.
+
+Technical Requirements:
+- Real-time processing of customer inquiries
+- Integration with existing customer databases containing PII
+- Machine learning capabilities for predictive analytics
+- Automated decision-making for insurance claims processing
+- Cross-border data processing capabilities
+- Biometric voice recognition for customer authentication
+
+Data Handling:
+- Processing of special category personal data (health, financial)
+- International data transfers to third-country providers
+- Automated profiling and decision-making
+- Real-time analytics on customer behavior
+- Storage of conversation transcripts and call recordings
+
+Security Considerations:
+- Cloud-based architecture with third-party AI services
+- API integrations with multiple external vendors
+- Real-time data streaming and processing
+- Mobile app integration for customer access
+- Multi-tenant SaaS deployment model
+
+Compliance Requirements:
+- GDPR Article 35 DPIA requirements
+- NIS2 cybersecurity incident reporting
+- DORA operational resilience for financial services
+- EU AI Act high-risk AI system requirements
+- Data localization and sovereignty requirements
+
+The selected vendor must demonstrate compliance with all applicable regulations and provide evidence of security certifications including ISO 27001, SOC 2, and adequate cybersecurity frameworks.

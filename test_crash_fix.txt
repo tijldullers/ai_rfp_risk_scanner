@@ -1,0 +1,20 @@
+
+Test Document for AI RFP Risk Analysis
+
+Project: AI Chatbot Implementation
+
+Requirements:
+- Deploy an AI-powered customer service chatbot
+- Process customer data including personal information
+- Integrate with existing CRM systems
+- Provide 24/7 automated responses
+- Handle financial transactions and payments
+
+Technical Specifications:
+- Cloud-based deployment on AWS
+- Natural language processing capabilities
+- Integration with payment gateways
+- Customer data storage and analytics
+- Multi-language support
+
+This is a test document to verify that the analysis crash fix works properly and doesn't get stuck in processing status.

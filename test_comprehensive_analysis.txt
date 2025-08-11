@@ -1,0 +1,70 @@
+
+AI CHATBOT IMPLEMENTATION RFP - COMPREHENSIVE TEST
+
+EXECUTIVE SUMMARY:
+MegaCorp Insurance seeks to implement an AI-powered customer service chatbot system to enhance customer experience and operational efficiency.
+
+KEY REQUIREMENTS:
+
+1. DATA PRIVACY & PROTECTION:
+- Process customer personal data including policy information
+- Implement GDPR-compliant consent mechanisms
+- Ensure data subject rights (access, rectification, erasure)
+- Maintain data protection impact assessments
+
+2. CYBERSECURITY & INFRASTRUCTURE:
+- Secure API integrations with existing systems
+- Network security controls and monitoring
+- Vulnerability management processes
+- Infrastructure resilience and backup systems
+
+3. AI GOVERNANCE & ACCOUNTABILITY:
+- Transparent AI decision-making processes
+- Explainable AI capabilities for customer interactions
+- Clear accountability frameworks for AI decisions
+- Regular AI model auditing and validation
+
+4. REGULATORY & LEGAL COMPLIANCE:
+- Compliance with EU AI Act high-risk system requirements
+- Financial services sector-specific regulations
+- Legal liability frameworks for AI decisions
+- Regulatory reporting and documentation
+
+5. OPERATIONAL & TECHNICAL RISKS:
+- System integration with legacy insurance platforms
+- Performance and scalability requirements
+- Technical reliability and uptime guarantees
+- API security and data flow management
+
+6. FINANCIAL & COMMERCIAL RISKS:
+- Budget constraints and cost management
+- Vendor selection and commercial dependencies
+- Licensing and subscription model risks
+- ROI measurement and financial controls
+
+7. ETHICAL & SOCIAL RISKS:
+- AI bias detection and mitigation strategies
+- Algorithmic fairness across customer demographics
+- Social impact on customer service employment
+- Discrimination prevention measures
+
+8. IMPLEMENTATION & CHANGE MANAGEMENT:
+- Staff training and capability development
+- Change management for customer service teams
+- Phased deployment and rollout planning
+- Organizational resistance management
+
+TECHNICAL SPECIFICATIONS:
+- Multi-language support (English, German, French)
+- Integration with existing CRM and policy management systems
+- Real-time response capabilities (<2 seconds)
+- 24/7 availability with 99.9% uptime SLA
+
+COMPLIANCE REQUIREMENTS:
+- GDPR Article 35 Data Protection Impact Assessment
+- EU AI Act Article 9 Risk Management System
+- NIS2 Directive cybersecurity requirements
+- DORA operational resilience standards
+
+This RFP requires comprehensive risk analysis across all categories to ensure regulatory compliance and operational excellence.
+  

@@ -1,0 +1,26 @@
+AI SYSTEM PROCUREMENT REQUEST FOR PROPOSAL
+
+SECTION 1: PROJECT OVERVIEW
+We are seeking proposals for an AI-powered customer service chatbot system that will handle customer inquiries, process personal data, and provide automated responses. The system should integrate with our existing CRM database and handle sensitive customer information including names, addresses, payment details, and communication preferences.
+
+SECTION 2: TECHNICAL REQUIREMENTS
+- Natural language processing capabilities
+- Integration with customer database containing personal information
+- Automated decision-making for customer service responses
+- Cloud-based deployment with data processing in multiple jurisdictions
+- Real-time analytics and customer behavior tracking
+- Facial recognition for customer identification in video calls
+
+SECTION 3: DATA HANDLING
+The AI system will process customer personal data including:
+- Full names and contact information
+- Payment and financial data
+- Communication history and preferences
+- Biometric data for authentication
+- Location data for service personalization
+
+SECTION 4: COMPLIANCE REQUIREMENTS
+The solution must comply with relevant data protection regulations including GDPR, CCPA, and local privacy laws. The vendor should provide documentation of their AI governance framework and risk mitigation strategies.
+
+SECTION 5: EVALUATION CRITERIA
+Proposals will be evaluated based on technical capability, cost, compliance with data protection requirements, and demonstrated AI risk management practices.

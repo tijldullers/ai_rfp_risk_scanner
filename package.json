@@ -1,0 +1,49 @@
+
+{
+  "name": "ai-rfp-risk-scanner",
+  "version": "2.0.0",
+  "description": "Comprehensive AI RFP risk analysis tool with regulatory compliance mapping",
+  "main": "app/server.js",
+  "scripts": {
+    "dev": "cd app && yarn dev",
+    "build": "cd app && yarn build",
+    "start": "cd app && yarn start",
+    "test": "cd app && yarn test",
+    "lint": "cd app && yarn lint",
+    "setup": "cd app && yarn install && npx prisma generate && npx prisma db push",
+    "seed": "cd app && npm run seed",
+    "clean": "rm -rf app/.next && rm -rf app/node_modules",
+    "docker:build": "docker build -t ai-rfp-scanner .",
+    "docker:run": "docker run -p 3000:3000 ai-rfp-scanner",
+    "deploy:vercel": "cd app && vercel --prod",
+    "backup:db": "pg_dump $DATABASE_URL > backup-$(date +%Y%m%d-%H%M%S).sql",
+    "restore:db": "psql $DATABASE_URL < backup.sql"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/ai-rfp-risk-scanner.git"
+  },
+  "keywords": [
+    "ai",
+    "rfp",
+    "risk-analysis",
+    "compliance",
+    "regulatory",
+    "nextjs",
+    "typescript",
+    "prisma",
+    "postgresql"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/ai-rfp-risk-scanner/issues"
+  },
+  "homepage": "https://github.com/yourusername/ai-rfp-risk-scanner#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "yarn": ">=1.22.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

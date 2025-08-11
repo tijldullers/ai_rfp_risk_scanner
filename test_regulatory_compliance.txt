@@ -1,0 +1,13 @@
+
+Test RFP for AI Chatbot Implementation
+
+We are seeking proposals for implementing an AI-powered customer service chatbot that will handle customer inquiries, process personal data including names and email addresses, and integrate with our existing CRM system.
+
+The AI system will need to:
+- Process customer personal data
+- Learn from customer interactions  
+- Provide automated responses
+- Store conversation logs
+- Integrate with external APIs
+
+We require compliance with GDPR, cybersecurity best practices, and AI ethics guidelines.

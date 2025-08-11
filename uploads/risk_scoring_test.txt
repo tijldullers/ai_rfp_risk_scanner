@@ -1,0 +1,14 @@
+AI System RFP Test Document
+
+This RFP outlines requirements for an AI-powered customer service chatbot. The system must:
+
+1. Process personal customer data including names, email addresses, and service history
+2. Implement GDPR-compliant data processing and storage
+3. Provide explainable AI decision making
+4. Ensure robust cybersecurity measures
+5. Include bias detection and mitigation capabilities
+6. Comply with EU AI Act requirements for high-risk AI systems
+7. Implement proper data governance and accountability measures
+8. Ensure operational reliability and technical performance standards
+
+The system will handle sensitive customer information and make automated decisions that could significantly impact customer experience and business operations.

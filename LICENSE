@@ -1,0 +1,78 @@
+
+MIT License
+
+Copyright (c) 2025 AI RFP Risk Scanner
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Third-Party Licenses
+
+This project includes several third-party packages with their own licenses:
+
+### Next.js
+- License: MIT
+- Copyright: Vercel, Inc.
+
+### React
+- License: MIT
+- Copyright: Facebook, Inc.
+
+### Prisma
+- License: Apache 2.0
+- Copyright: Prisma Data, Inc.
+
+### Tailwind CSS
+- License: MIT
+- Copyright: Tailwind Labs, Inc.
+
+### Other Dependencies
+All other dependencies maintain their original licenses as specified in their respective package.json files.
+
+For a complete list of dependencies and their licenses, run:
+```bash
+cd app && yarn licenses list
+```
+
+---
+
+## Data Processing and Privacy
+
+### User Data
+- User authentication data is processed according to our Privacy Policy
+- Uploaded documents are processed for analysis purposes only
+- Analysis results are stored securely with user-specific access controls
+
+### Document Processing
+- Uploaded documents are temporarily stored for analysis
+- Documents are automatically deleted after analysis completion
+- No personal data from documents is permanently retained without user consent
+
+### Third-Party Services
+- LLM analysis services process document content for risk assessment
+- No personally identifiable information is transmitted to third-party services
+- All API communications are encrypted in transit
+
+### Data Retention
+- User accounts and analysis results are retained until account deletion
+- Users may request complete data deletion at any time
+- Backups are retained for 30 days for disaster recovery purposes
+
+For questions about data processing, contact: privacy@yourdomain.com

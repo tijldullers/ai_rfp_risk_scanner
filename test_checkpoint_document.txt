@@ -1,0 +1,10 @@
+Test RFP Document for Checkpoint Testing
+
+This is a sample RFP document that contains AI-related requirements:
+- Data processing capabilities
+- Machine learning algorithms
+- Privacy protection measures
+- Security compliance requirements
+- Automated decision-making processes
+
+The vendor should demonstrate their AI system's ability to handle sensitive data while maintaining compliance with relevant regulations.

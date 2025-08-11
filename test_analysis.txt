@@ -1,0 +1,1 @@
+Testing AI RFP document for risk analysis. This document outlines requirements for implementing an AI chatbot system without specific bias testing procedures or fairness validation requirements. The vendor must provide AI-powered recommendations but detailed algorithmic transparency measures are not specified.

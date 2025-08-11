@@ -1,0 +1,34 @@
+AI CHATBOT RFP - COMPREHENSIVE TEST
+
+MegaInsurance Corp is seeking an AI-powered chatbot solution for customer service automation.
+
+REQUIREMENTS:
+1. Personal data processing and GDPR compliance
+2. Integration with existing CRM systems
+3. 24/7 automated customer support
+4. Bias detection and fairness mechanisms
+5. Security incident response procedures
+6. Third-party vendor management
+7. Staff training and change management
+8. Financial cost management
+
+TECHNICAL SPECIFICATIONS:
+- Multi-language support
+- Machine learning algorithms
+- Cloud infrastructure deployment
+- API integrations
+- Real-time response capabilities
+
+COMPLIANCE REQUIREMENTS:
+- EU AI Act compliance for high-risk AI systems
+- GDPR Article 35 Data Protection Impact Assessment
+- NIS2 cybersecurity requirements
+- Financial services regulatory compliance
+
+BUSINESS OBJECTIVES:
+- Reduce customer service costs by 40%
+- Improve response times to under 30 seconds
+- Maintain 95% customer satisfaction ratings
+- Ensure regulatory compliance across all jurisdictions
+
+The solution must address all aspects of AI risk management including data privacy, cybersecurity, ethical considerations, and operational resilience.

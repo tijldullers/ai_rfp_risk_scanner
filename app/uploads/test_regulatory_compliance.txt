@@ -1,0 +1,21 @@
+AI Chatbot RFP for Customer Service
+
+We are seeking an AI chatbot solution to handle customer inquiries. The system should:
+
+1. Process customer personal data including names, emails, and transaction history
+2. Use machine learning algorithms to provide personalized responses
+3. Integrate with our existing CRM system
+4. Handle sensitive financial information
+5. Provide automated decision-making for loan applications
+6. Store conversation data for training purposes
+7. Use third-party AI models for natural language processing
+
+Key Requirements:
+- GDPR compliance for EU customers
+- Data encryption and security measures
+- Audit trails for all AI decisions
+- Bias detection and mitigation
+- Integration with external APIs
+- Real-time processing capabilities
+
+The solution must comply with all applicable data protection regulations and AI governance frameworks.

@@ -1,0 +1,1 @@
+Test document for AI RFP analysis. This document contains requirements for an AI chatbot system that processes customer data and needs to comply with GDPR regulations. The system should have robust security measures and ethical AI practices.

@@ -1,0 +1,23 @@
+AI-Powered Customer Service RFP
+
+REQUIREMENTS:
+1. The system must implement machine learning algorithms for customer query classification
+2. Vendor shall provide automated response generation capabilities  
+3. The solution must include sentiment analysis functionality
+4. No specific requirements for algorithmic fairness testing or bias mitigation
+5. Data privacy measures should follow standard industry practices
+6. The AI system should learn from customer interactions to improve responses
+
+TECHNICAL SPECIFICATIONS:
+- Response time under 2 seconds
+- Support for multiple languages
+- Integration with existing CRM systems
+- No explicit requirements for AI model explainability or transparency
+
+EVALUATION CRITERIA:
+- Technical capability (40%)
+- Cost effectiveness (30%) 
+- Implementation timeline (20%)
+- Post-deployment support (10%)
+
+Missing elements: No mention of AI governance frameworks, bias testing procedures, or algorithmic audit requirements.

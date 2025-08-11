@@ -1,0 +1,29 @@
+AI CHATBOT RFP - TRANSPARENCY TEST
+
+OVERVIEW:
+We are seeking an AI-powered customer service chatbot solution that will process customer inquiries, handle personal data, and integrate with our existing systems.
+
+REQUIREMENTS:
+1. AI system must process customer personal data including names, addresses, and financial information
+2. Integration with third-party AI services for natural language processing
+3. Real-time learning and adaptation capabilities
+4. 24/7 operational availability with high performance requirements
+5. Compliance with GDPR, DORA, and EU AI Act regulations
+6. Data storage and processing in cloud infrastructure
+7. Integration with existing CRM and customer databases
+
+TECHNICAL SPECIFICATIONS:
+- Machine learning algorithms for intent recognition
+- Natural language processing capabilities
+- Real-time data processing and analytics
+- API integrations with multiple third-party services
+- Automated decision-making for customer routing
+
+COMPLIANCE REQUIREMENTS:
+- GDPR compliance for personal data processing
+- Data breach notification procedures
+- Privacy by design implementation
+- Regular auditing and monitoring
+- Risk assessment documentation
+
+The solution must be deployed within 6 months and handle up to 10,000 concurrent conversations.

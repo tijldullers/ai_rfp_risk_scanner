@@ -1,0 +1,2890 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created_date": "2025-07-29",
+    "description": "Comprehensive AI Risk Assessment Database for RFP Analysis",
+    "source_frameworks": [
+      "MIT AI Risk Mitigation Taxonomy",
+      "NIST AI Risk Management Framework",
+      "EU AI Act",
+      "ISO 31000:2018",
+      "GDPR",
+      "NIS2",
+      "DORA",
+      "CIPM (Certified Information Privacy Manager)"
+    ],
+    "risk_scoring_methodology": "ISO 31000 based with 5x5 matrix (Likelihood x Impact)",
+    "perspectives": ["Buyer", "Supplier"],
+    "last_updated": "2025-07-29"
+  },
+  "risk_scoring_framework": {
+    "methodology": "ISO 31000:2018",
+    "likelihood_scale": {
+      "1": {"label": "Rare", "description": "May occur only in exceptional circumstances", "probability": "< 5%"},
+      "2": {"label": "Unlikely", "description": "Could occur at some time", "probability": "5-25%"},
+      "3": {"label": "Possible", "description": "Might occur at some time", "probability": "25-50%"},
+      "4": {"label": "Likely", "description": "Will probably occur in most circumstances", "probability": "50-75%"},
+      "5": {"label": "Almost Certain", "description": "Expected to occur in most circumstances", "probability": "> 75%"}
+    },
+    "impact_scale": {
+      "1": {"label": "Insignificant", "description": "Minimal impact on operations, reputation, or compliance"},
+      "2": {"label": "Minor", "description": "Small impact with manageable consequences"},
+      "3": {"label": "Moderate", "description": "Moderate impact requiring management attention"},
+      "4": {"label": "Major", "description": "Significant impact affecting business operations"},
+      "5": {"label": "Catastrophic", "description": "Severe impact threatening business viability"}
+    },
+    "risk_matrix": {
+      "calculation": "Risk Score = Likelihood × Impact",
+      "thresholds": {
+        "low": "1-6",
+        "medium": "7-12",
+        "high": "13-20",
+        "extreme": "21-25"
+      }
+    }
+  },
+  "regulatory_compliance_mapping": {
+    "GDPR": {
+      "scope": "Personal data processing for AI systems",
+      "official_link": "https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng",
+      "enforcement_authority": "Data Protection Authorities (DPAs) in each EU Member State",
+      "applicability_threshold": "Processing personal data of EU residents or offering services to EU residents",
+      "key_articles": {
+        "Article_35": {
+          "title": "Data Protection Impact Assessment (DPIA)",
+          "link": "https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#d1e3639-1-1",
+          "recital_references": ["Recital 84", "Recital 90", "Recital 91"],
+          "requirements": [
+            "Mandatory DPIA for AI systems likely to result in high risk to rights and freedoms",
+            "Prior assessment before data processing begins - no processing until DPIA completed",
+            "Consultation with DPO where designated (mandatory consultation)",
+            "Systematic description of processing operations, purposes, and legitimate interests",
+            "Assessment of necessity and proportionality of processing operations",
+            "Assessment of risks to rights and freedoms of data subjects",
+            "Risk mitigation measures and safeguards implementation",
+            "Prior consultation with supervisory authority if high residual risk remains"
+          ],
+          "evidence_required": [
+            "DPIA screening assessment documentation with risk threshold analysis",
+            "Systematic description of AI processing operations including data flows",
+            "Necessity and proportionality assessment with legal basis justification",
+            "Risk assessment to individual rights and freedoms with impact scoring",
+            "Risk mitigation measures documentation with implementation timelines",
+            "DPO consultation records with formal opinions and recommendations",
+            "DPIA review and update records with change management procedures",
+            "Prior consultation documentation with supervisory authority if applicable",
+            "Stakeholder consultation records including data subject representatives",
+            "Technical and organizational measures (TOMs) implementation evidence"
+          ],
+          "industry_best_practices": [
+            "Use EDPB Guidelines 4/2021 on codes of conduct as monitoring bodies",
+            "Implement Privacy by Design principles from Ann Cavoukian framework",
+            "Follow ISO/IEC 29134:2017 Privacy impact assessment guidelines",
+            "Apply NIST Privacy Framework for comprehensive privacy risk management",
+            "Use CNIL's DPIA methodology for AI systems",
+            "Implement continuous DPIA monitoring with automated risk indicators"
+          ],
+          "common_compliance_gaps": [
+            "Insufficient risk assessment granularity for AI-specific risks",
+            "Lack of ongoing DPIA updates as AI models evolve",
+            "Missing consultation with affected communities or representatives",
+            "Inadequate consideration of algorithmic bias and discrimination risks",
+            "Insufficient documentation of data subject rights impact assessment"
+          ]
+        },
+        "Article_25": {
+          "title": "Data Protection by Design and by Default",
+          "link": "https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#d1e3063-1-1",
+          "recital_references": ["Recital 78"],
+          "requirements": [
+            "Privacy-by-design principles embedded in AI system architecture from conception",
+            "Process only necessary data by default - data minimization as default setting",
+            "State-of-the-art technical and organizational measures implementation",
+            "Regular review of measures effectiveness with documented improvements",
+            "Pseudonymization and encryption where appropriate and feasible",
+            "Ability to ensure ongoing confidentiality, integrity, availability and resilience",
+            "Ability to restore availability and access to data in timely manner after incidents"
+          ],
+          "evidence_required": [
+            "Privacy-by-design implementation documentation with architectural diagrams",
+            "Data minimization configuration records with default settings proof",
+            "Pseudonymization and encryption evidence with cryptographic standards",
+            "Access control implementation records with role-based permissions",
+            "State-of-the-art considerations documentation with technology assessments",
+            "Regular effectiveness reviews with improvement action plans",
+            "Technical measures documentation including data protection controls",
+            "Organizational measures documentation including policies and procedures",
+            "Incident response and recovery procedures with testing evidence",
+            "Data retention and deletion procedures with automated enforcement"
+          ],
+          "industry_best_practices": [
+            "Apply Privacy by Design foundational principles by Ann Cavoukian",
+            "Implement NIST Privacy Framework controls for data processing",
+            "Use differential privacy techniques for AI model training",
+            "Apply federated learning to minimize data centralization",
+            "Implement homomorphic encryption for privacy-preserving computation",
+            "Use secure multi-party computation for collaborative AI development",
+            "Apply k-anonymity and l-diversity for data anonymization",
+            "Implement privacy-preserving synthetic data generation"
+          ],
+          "common_compliance_gaps": [
+            "Retrofitting privacy controls instead of building them in from design",
+            "Insufficient data minimization in AI training datasets",
+            "Lack of privacy-preserving AI techniques implementation",
+            "Missing regular effectiveness reviews and updates",
+            "Inadequate pseudonymization techniques for AI contexts"
+          ]
+        },
+        "Articles_33_34": {
+          "title": "Breach Notification",
+          "link": "https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng#d1e3434-1-1",
+          "recital_references": ["Recital 85", "Recital 86", "Recital 87", "Recital 88"],
+          "requirements": [
+            "72-hour notification to supervisory authority without undue delay",
+            "High risk threshold assessment for data subject notification within 72 hours",
+            "Clear and plain language communication to affected individuals",
+            "Documentation of all personal data breaches in breach register",
+            "Description of nature of breach including categories and numbers affected",
+            "Communication of likely consequences of the breach",
+            "Description of measures taken or proposed to address the breach"
+          ],
+          "evidence_required": [
+            "Breach notification procedures specific to AI systems with automated detection",
+            "Incident response plan documentation with AI-specific breach scenarios",
+            "Breach register with facts, effects, and remedial actions for each incident",
+            "Communication templates and records for authority and data subject notifications",
+            "Risk assessment methodology for determining high risk threshold",
+            "Breach detection and monitoring systems documentation",
+            "Staff training records on breach identification and response procedures",
+            "Third-party processor breach notification agreements and procedures",
+            "Post-breach analysis and lessons learned documentation",
+            "Regulatory correspondence and authority feedback records"
+          ],
+          "industry_best_practices": [
+            "Implement automated breach detection using SIEM and AI monitoring tools",
+            "Use ENISA guidelines for incident handling and breach notification",
+            "Apply NIST Cybersecurity Framework for incident response",
+            "Implement ISO/IEC 27035 incident management processes",
+            "Use threat intelligence feeds for proactive breach prevention",
+            "Conduct regular breach simulation exercises and tabletop drills",
+            "Implement forensic readiness procedures for breach investigation",
+            "Use secure communication channels for breach notifications"
+          ],
+          "common_compliance_gaps": [
+            "Delayed breach detection due to insufficient AI system monitoring",
+            "Inadequate risk assessment for determining data subject notification requirements",
+            "Missing breach notification procedures for AI-specific scenarios",
+            "Insufficient documentation of breach investigation and remediation",
+            "Lack of coordination between technical teams and legal/compliance teams"
+          ]
+        }
+      },
+      "guidance_documents": [
+        "https://ec.europa.eu/newsroom/article29/document.cfm?doc_id=611236&format=pdf",
+        "https://www.edpb.europa.eu/sites/default/files/files/file1/edpb_guidelines_201904_dataprotection_by_design_and_by_default_v2.0_en.pdf",
+        "https://www.edpb.europa.eu/sites/default/files/consultation/edpb_guidelines_202101_dataprotection_by_design_and_by_default.pdf",
+        "https://www.edpb.europa.eu/sites/default/files/files/file1/edpb_guidelines_3_2018_derogations_en.pdf"
+      ],
+      "penalties": "Up to €20M or 4% of global annual turnover (whichever is higher)",
+      "recent_enforcement_examples": [
+        "Meta fined €1.2B (2023) for inadequate data transfer safeguards",
+        "Amazon fined €746M (2021) for GDPR violations in advertising",
+        "WhatsApp fined €225M (2021) for transparency violations"
+      ]
+    },
+    "NIS2": {
+      "scope": "Essential and important entities in critical sectors using AI",
+      "official_link": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj",
+      "enforcement_authority": "National competent authorities designated by each EU Member State",
+      "applicability_threshold": "Medium and large entities in essential/important sectors (50+ employees, €10M+ turnover)",
+      "covered_sectors": [
+        "Energy (electricity, oil, gas)",
+        "Transport (air, rail, water, road)",
+        "Banking and financial market infrastructures",
+        "Health sector",
+        "Drinking water supply and distribution",
+        "Digital infrastructure",
+        "ICT service management",
+        "Public administration",
+        "Space sector"
+      ],
+      "key_articles": {
+        "Article_21": {
+          "title": "Cybersecurity Risk Management Measures",
+          "link": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj#d1e2154-1-1",
+          "recital_references": ["Recital 90", "Recital 91", "Recital 92"],
+          "requirements": [
+            "Risk analysis and information system security policies for AI systems",
+            "Incident handling procedures with AI-specific incident types",
+            "Business continuity and crisis management including AI system failures",
+            "Supply chain security for AI vendors and third-party providers",
+            "Security in network and information systems acquisition for AI components",
+            "Vulnerability handling and disclosure for AI system vulnerabilities",
+            "Multi-factor authentication and continuous monitoring of AI systems",
+            "Staff awareness and training on cybersecurity including AI-specific threats",
+            "Cryptography and encryption for AI data and model protection",
+            "Human resources security and privileged access management for AI systems"
+          ],
+          "evidence_required": [
+            "Cybersecurity risk management framework documentation with AI risk categories",
+            "AI system security policies and procedures with threat modeling",
+            "Supply chain security assessments for AI vendors with due diligence records",
+            "Vulnerability management procedures with AI-specific vulnerability scanning",
+            "Multi-factor authentication implementation records for AI system access",
+            "Cybersecurity training records with AI threat awareness modules",
+            "Cryptography and encryption implementation evidence for AI data protection",
+            "Incident response procedures with AI system failure scenarios",
+            "Business continuity plans with AI system recovery procedures",
+            "Access control matrices and privileged access management for AI systems",
+            "Security monitoring and logging evidence for AI system activities",
+            "Third-party security assessments and vendor risk evaluations"
+          ],
+          "industry_best_practices": [
+            "Apply NIST Cybersecurity Framework 2.0 with AI risk considerations",
+            "Implement ISO/IEC 27001:2022 controls for AI system security",
+            "Use ENISA guidelines for AI cybersecurity risk management",
+            "Apply MITRE ATT&CK framework for AI-specific threat modeling",
+            "Implement Zero Trust architecture for AI system access",
+            "Use OWASP AI Security and Privacy Guide recommendations",
+            "Apply NIST AI Risk Management Framework for comprehensive AI governance",
+            "Implement continuous security monitoring with AI/ML-based detection"
+          ],
+          "common_compliance_gaps": [
+            "Insufficient AI-specific threat modeling and risk assessment",
+            "Lack of supply chain security assessments for AI vendors",
+            "Missing AI system vulnerability management procedures",
+            "Inadequate incident response procedures for AI system failures",
+            "Insufficient staff training on AI-specific cybersecurity threats"
+          ]
+        },
+        "Article_23": {
+          "title": "Reporting of Significant Incidents",
+          "link": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj#d1e2280-1-1",
+          "recital_references": ["Recital 93", "Recital 94"],
+          "requirements": [
+            "24-hour initial notification of significant incidents affecting AI systems",
+            "72-hour intermediate report with updated information and impact assessment",
+            "Final report within one month with root cause analysis and remediation",
+            "Ongoing monitoring and reporting of incident progression and recovery",
+            "Cross-border incident notification for incidents affecting multiple Member States",
+            "Incident severity classification based on impact on essential services"
+          ],
+          "evidence_required": [
+            "Incident reporting procedures specific to AI systems with automated detection",
+            "Incident classification and assessment criteria for AI system failures",
+            "Communication templates for competent authorities with required information fields",
+            "Incident tracking and monitoring systems with real-time status updates",
+            "Root cause analysis procedures and documentation templates",
+            "Cross-border notification procedures for multi-jurisdictional incidents",
+            "Incident severity assessment methodology with impact scoring",
+            "Recovery and remediation tracking with timeline documentation",
+            "Lessons learned documentation and improvement action plans",
+            "Regulatory correspondence and authority feedback records"
+          ],
+          "industry_best_practices": [
+            "Implement ENISA incident taxonomy for consistent incident classification",
+            "Use NIST Computer Security Incident Handling Guide (SP 800-61)",
+            "Apply ISO/IEC 27035 incident management framework",
+            "Implement SIEM solutions for automated incident detection and reporting",
+            "Use threat intelligence feeds for proactive incident prevention",
+            "Conduct regular incident response exercises and simulations",
+            "Implement forensic readiness procedures for incident investigation",
+            "Use secure communication channels for incident reporting"
+          ],
+          "common_compliance_gaps": [
+            "Delayed incident detection and reporting due to insufficient monitoring",
+            "Inadequate incident classification for AI-specific failure modes",
+            "Missing cross-border notification procedures",
+            "Insufficient root cause analysis and remediation documentation",
+            "Lack of coordination between technical and compliance teams"
+          ]
+        }
+      },
+      "guidance_documents": [
+        "https://www.enisa.europa.eu/publications/nis-2-directive-guidance",
+        "https://www.enisa.europa.eu/publications/guidelines-for-securing-the-internet-of-things",
+        "https://www.enisa.europa.eu/publications/artificial-intelligence-cybersecurity-challenges",
+        "https://digital-strategy.ec.europa.eu/en/policies/nis2-directive"
+      ],
+      "penalties": "Up to €10M or 2% of global annual turnover (whichever is higher)",
+      "implementation_deadline": "October 17, 2024 (Member State transposition deadline)",
+      "recent_developments": [
+        "Member States implementing national legislation (2024)",
+        "ENISA developing technical guidelines for AI cybersecurity",
+        "Cross-border cooperation mechanisms being established"
+      ]
+    },
+    "DORA": {
+      "scope": "EU financial entities and critical ICT third-party service providers using AI",
+      "official_link": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj",
+      "enforcement_authority": "European Supervisory Authorities (EBA, EIOPA, ESMA) and national competent authorities",
+      "applicability_threshold": "All financial entities regardless of size, critical ICT third-party service providers",
+      "covered_entities": [
+        "Credit institutions and investment firms",
+        "Payment institutions and e-money institutions",
+        "Insurance and reinsurance undertakings",
+        "Occupational retirement provision institutions",
+        "Central securities depositories and central counterparties",
+        "Trading venues and trade repositories",
+        "Managers of alternative investment funds",
+        "Data reporting service providers",
+        "Critical ICT third-party service providers"
+      ],
+      "key_articles": {
+        "Articles_6_7": {
+          "title": "ICT Risk Management Framework",
+          "link": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj#d1e1234-1-1",
+          "recital_references": ["Recital 38", "Recital 39", "Recital 40"],
+          "requirements": [
+            "Comprehensive ICT risk management framework for AI systems with board approval",
+            "ICT risk appetite and tolerance levels specifically addressing AI system risks",
+            "Protection measures for AI system availability, authenticity, integrity and confidentiality",
+            "Detection and prevention of ICT-related incidents including AI system failures",
+            "Response and recovery procedures for AI system disruptions and data corruption",
+            "Learning and evolving from ICT disruptions with continuous improvement",
+            "ICT risk assessment at least annually with AI system risk evaluation",
+            "Documentation of ICT risk management framework with regular updates"
+          ],
+          "evidence_required": [
+            "ICT risk management framework documentation with AI-specific risk categories",
+            "AI system risk appetite statement approved by management body",
+            "Protection and response procedures for AI system operational resilience",
+            "Incident detection and prevention controls with AI anomaly detection",
+            "Recovery and business continuity plans with AI system restoration procedures",
+            "Risk management review and update records with annual assessment reports",
+            "ICT risk register with AI system risk identification and treatment",
+            "Management body approval records for ICT risk management framework",
+            "ICT risk monitoring and reporting procedures with AI system metrics",
+            "Third-party ICT service provider risk assessments including AI vendors",
+            "Business impact analysis for AI system dependencies and criticality",
+            "ICT asset inventory including AI systems and supporting infrastructure"
+          ],
+          "industry_best_practices": [
+            "Apply ISO/IEC 27001:2022 for comprehensive information security management",
+            "Implement NIST Cybersecurity Framework 2.0 with financial services profile",
+            "Use COBIT 2019 for IT governance and management of AI systems",
+            "Apply FAIR (Factor Analysis of Information Risk) for quantitative risk assessment",
+            "Implement COSO ERM framework for enterprise risk management",
+            "Use NIST AI Risk Management Framework for AI-specific risk governance",
+            "Apply Basel Committee guidance on operational resilience",
+            "Implement continuous monitoring with AI/ML-based risk detection"
+          ],
+          "common_compliance_gaps": [
+            "Insufficient AI-specific risk identification and assessment",
+            "Lack of board-level oversight and approval for AI risk management",
+            "Missing business impact analysis for AI system dependencies",
+            "Inadequate third-party risk management for AI service providers",
+            "Insufficient documentation of AI system risk treatment measures"
+          ]
+        },
+        "Articles_28_30": {
+          "title": "Third-Party Risk Management",
+          "link": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj#d1e2850-1-1",
+          "recital_references": ["Recital 52", "Recital 53", "Recital 54"],
+          "requirements": [
+            "Comprehensive third-party ICT service provider oversight for AI vendors",
+            "Due diligence and risk assessment of AI vendors before contracting",
+            "Contractual arrangements with clear service levels and AI performance metrics",
+            "Ongoing monitoring of third-party AI service performance and compliance",
+            "Exit strategies and transition plans for AI service provider changes",
+            "Register of information on all contractual arrangements with ICT third-party providers",
+            "Concentration risk assessment for critical AI service dependencies",
+            "Subcontracting oversight including AI model development and hosting"
+          ],
+          "evidence_required": [
+            "Third-party risk assessment procedures for AI vendors with risk scoring methodology",
+            "Due diligence documentation and records including financial stability assessment",
+            "Service level agreements and contractual arrangements with AI-specific requirements",
+            "Performance monitoring and reporting systems with AI service metrics",
+            "Exit strategy and contingency plans with data portability procedures",
+            "Register of ICT third-party service providers including AI vendors",
+            "Concentration risk assessment reports for critical AI dependencies",
+            "Subcontracting oversight procedures and approval records",
+            "Vendor security assessments and certification requirements",
+            "Data processing agreements and data protection compliance evidence",
+            "Business continuity arrangements with third-party providers",
+            "Incident notification and escalation procedures with AI vendors"
+          ],
+          "industry_best_practices": [
+            "Apply NIST SP 800-161 for supply chain risk management",
+            "Use ISO/IEC 27036 for supplier relationship security",
+            "Implement shared assessments standardized information gathering (SIG)",
+            "Apply FAIR methodology for quantitative third-party risk assessment",
+            "Use continuous monitoring solutions for vendor risk management",
+            "Implement vendor risk management platforms with automated assessments",
+            "Apply SOC 2 Type II and ISO 27001 certification requirements",
+            "Use standardized vendor questionnaires and risk assessment templates"
+          ],
+          "common_compliance_gaps": [
+            "Insufficient due diligence for AI-specific risks and capabilities",
+            "Missing concentration risk assessment for critical AI dependencies",
+            "Inadequate exit planning and data portability arrangements",
+            "Lack of ongoing monitoring for AI service performance and drift",
+            "Missing subcontracting oversight for AI model development"
+          ]
+        },
+        "Articles_25_27": {
+          "title": "Digital Operational Resilience Testing",
+          "link": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj#d1e2650-1-1",
+          "recital_references": ["Recital 49", "Recital 50", "Recital 51"],
+          "requirements": [
+            "Risk-based approach to digital operational resilience testing for AI systems",
+            "Vulnerability assessments and penetration testing for AI systems and infrastructure",
+            "Threat-led penetration testing (TLPT) for significant institutions using AI",
+            "Testing of AI system recovery and response capabilities under stress conditions",
+            "Red team exercises simulating sophisticated cyber attacks on AI systems",
+            "Testing frequency based on risk profile and criticality of AI systems",
+            "Documentation of testing results and remediation actions"
+          ],
+          "evidence_required": [
+            "Digital operational resilience testing program with AI-specific test scenarios",
+            "Vulnerability assessment reports for AI systems with remediation tracking",
+            "Penetration testing results and remediation plans for AI infrastructure",
+            "TLPT documentation where applicable including AI system attack scenarios",
+            "Testing results analysis and improvement plans with lessons learned",
+            "Red team exercise reports with AI system attack simulation results",
+            "Testing frequency justification based on AI system risk assessment",
+            "Remediation tracking and validation evidence for identified vulnerabilities",
+            "Testing scope documentation including AI system boundaries and dependencies",
+            "Third-party testing provider qualifications and independence evidence",
+            "Management reporting on testing results and risk treatment decisions",
+            "Regulatory notification procedures for significant testing findings"
+          ],
+          "industry_best_practices": [
+            "Apply NIST SP 800-115 for technical security testing and assessment",
+            "Use OWASP Testing Guide for web application security testing",
+            "Implement PTES (Penetration Testing Execution Standard) methodology",
+            "Apply TIBER-EU framework for threat intelligence-based ethical red teaming",
+            "Use MITRE ATT&CK framework for adversarial testing scenarios",
+            "Implement continuous security testing with automated vulnerability scanning",
+            "Apply chaos engineering principles for AI system resilience testing",
+            "Use AI red teaming techniques for adversarial robustness testing"
+          ],
+          "common_compliance_gaps": [
+            "Insufficient AI-specific testing scenarios and attack vectors",
+            "Missing threat-led penetration testing for AI system vulnerabilities",
+            "Inadequate testing of AI system recovery and business continuity procedures",
+            "Lack of red team exercises targeting AI system weaknesses",
+            "Missing documentation of testing results and remediation tracking"
+          ]
+        }
+      },
+      "guidance_documents": [
+        "https://www.eba.europa.eu/activities/single-rulebook/interactive-single-rulebook/5250",
+        "https://www.eba.europa.eu/regulation-and-policy/operational-resilience/guidelines-on-ict-and-security-risk-management",
+        "https://www.esma.europa.eu/sites/default/files/library/esma50-164-6084_final_report_dora.pdf",
+        "https://www.eiopa.europa.eu/document-library/other-documents/digital-operational-resilience-act-dora_en"
+      ],
+      "penalties": "Up to 2% of annual turnover or €20M (whichever is higher)",
+      "implementation_deadline": "January 17, 2025 (full application date)",
+      "recent_developments": [
+        "EBA/EIOPA/ESMA developing regulatory technical standards (2024)",
+        "Industry consultation on implementation guidelines ongoing",
+        "Supervisory expectations for AI risk management being clarified"
+      ]
+    },
+    "CIPM": {
+      "scope": "AI systems processing personal data requiring privacy risk management",
+      "official_link": "https://iapp.org/certify/cipm/",
+      "enforcement_authority": "Privacy professionals implementing organizational privacy frameworks",
+      "applicability_threshold": "Organizations developing or deploying AI systems that process personal data",
+      "framework_overview": "Certified Information Privacy Manager framework providing operational privacy management for AI systems through 6 core domains and specialized AI privacy methodologies",
+      "ai_specific_focus": [
+        "Privacy by Design implementation for AI systems",
+        "Automated decision-making privacy compliance (GDPR Article 22, CCPA/CPRA ADMT)",
+        "AI model privacy risk assessment methodologies",
+        "Privacy-preserving AI techniques integration",
+        "AI vendor privacy risk management",
+        "Cross-border AI data transfer compliance"
+      ],
+      "key_domains": {
+        "Domain_III_Assess": {
+          "title": "Privacy Impact Assessment and AI Risk Management",
+          "focus": "Systematic privacy risk assessment for AI systems throughout lifecycle",
+          "requirements": [
+            "AI-specific Privacy Impact Assessment (PIA) methodology with algorithmic bias evaluation",
+            "Privacy risk identification for automated decision-making and profiling systems",
+            "Risk assessment matrix for AI model privacy impacts with likelihood and impact scoring",
+            "Stakeholder consultation including affected communities and data subject representatives",
+            "Privacy threshold assessment for AI system deployment decisions",
+            "Cross-border data transfer risk assessment for AI training and inference",
+            "Third-party AI vendor privacy risk evaluation with due diligence procedures",
+            "Ongoing privacy risk monitoring with AI model drift and performance degradation tracking"
+          ],
+          "evidence_required": [
+            "AI Privacy Impact Assessment documentation with algorithmic bias assessment",
+            "Privacy risk register specific to AI systems with automated updating mechanisms",
+            "Stakeholder consultation records including data subject representative feedback",
+            "Risk scoring methodology documentation with AI-specific privacy risk factors",
+            "Cross-border transfer impact assessments for AI data flows",
+            "Vendor privacy risk assessments with AI-specific evaluation criteria",
+            "Privacy threshold analysis with AI system risk categorization",
+            "Ongoing risk monitoring reports with AI model performance privacy metrics"
+          ],
+          "industry_best_practices": [
+            "NIST AI Risk Management Framework (AI RMF) integration with privacy risk assessment",
+            "ISO/IEC 29134:2017 Privacy Impact Assessment guidelines for AI systems",
+            "CNIL AI Risk Assessment methodology for French data protection compliance",
+            "ICO AI guidance on privacy impact assessments and algorithmic processing",
+            "Privacy by Design foundational principles by Ann Cavoukian for AI architecture",
+            "Algorithmic Impact Assessment frameworks from Canada and other jurisdictions"
+          ],
+          "common_compliance_gaps": [
+            "Insufficient consideration of AI model bias and discrimination in privacy assessments",
+            "Missing stakeholder consultation with affected communities",
+            "Inadequate ongoing privacy risk monitoring as AI models evolve",
+            "Lack of cross-border data transfer risk assessment for AI systems",
+            "Missing AI vendor privacy risk evaluation procedures"
+          ]
+        },
+        "Domain_IV_Protect": {
+          "title": "Privacy Controls and AI Safeguards Implementation",
+          "focus": "Technical and organizational measures for AI privacy protection",
+          "requirements": [
+            "Privacy-preserving AI techniques implementation (differential privacy, federated learning)",
+            "Data minimization controls with AI model efficiency optimization",
+            "Pseudonymization and anonymization for AI training data with re-identification risk assessment",
+            "Consent management systems for AI processing with granular control options",
+            "Data subject rights automation for AI systems (access, rectification, erasure, portability)",
+            "Cross-border data transfer safeguards for AI operations (SCCs, adequacy decisions, BCRs)",
+            "AI model explainability controls for automated decision-making transparency",
+            "Privacy-preserving synthetic data generation for AI training with utility-privacy tradeoffs"
+          ],
+          "evidence_required": [
+            "Privacy-preserving AI implementation documentation with technical specifications",
+            "Data minimization procedures and evidence with AI model optimization records",
+            "Pseudonymization and anonymization procedures with re-identification risk analysis",
+            "Consent management system configuration and user interface documentation",
+            "Data subject rights fulfillment procedures and automation evidence",
+            "Cross-border transfer safeguards documentation (SCCs, BCRs, adequacy decisions)",
+            "AI explainability implementation with decision transparency mechanisms",
+            "Synthetic data generation procedures with privacy utility analysis"
+          ],
+          "industry_best_practices": [
+            "Differential privacy implementation using Google's DP library or similar frameworks",
+            "Federated learning deployment with PySyft, TensorFlow Federated, or similar platforms",
+            "Homomorphic encryption for privacy-preserving AI computation",
+            "Secure multi-party computation for collaborative AI development",
+            "k-anonymity and l-diversity techniques for structured data anonymization",
+            "Privacy budget management for differential privacy implementations",
+            "LIME/SHAP implementation for AI model local interpretability",
+            "Privacy-preserving synthetic data generation using GANs or VAEs"
+          ],
+          "common_compliance_gaps": [
+            "Insufficient implementation of privacy-preserving AI techniques",
+            "Missing data minimization optimization for AI model efficiency",
+            "Inadequate data subject rights automation for AI systems",
+            "Lack of AI explainability controls for automated decisions",
+            "Missing privacy utility analysis for synthetic data generation"
+          ]
+        },
+        "Domain_V_Sustain": {
+          "title": "AI Privacy Program Maintenance and Monitoring",
+          "focus": "Ongoing privacy program management for AI system lifecycle",
+          "requirements": [
+            "AI privacy governance framework with clear roles and responsibilities",
+            "Privacy monitoring and auditing procedures for AI systems with automated compliance checking",
+            "Privacy training and awareness programs specific to AI development and deployment teams",
+            "Privacy policy updates and maintenance reflecting AI processing activities",
+            "Vendor management and due diligence for AI service providers with ongoing monitoring",
+            "Privacy metrics and KPIs for AI systems with performance dashboards",
+            "Change management procedures for AI system updates with privacy impact assessment",
+            "Documentation management and record-keeping for AI privacy compliance evidence"
+          ],
+          "evidence_required": [
+            "AI privacy governance framework documentation with organizational chart and RACI matrix",
+            "Privacy monitoring procedures with automated compliance checking and alerting",
+            "AI-specific privacy training materials and completion records",
+            "Privacy policy documentation covering AI processing with regular update procedures",
+            "Vendor due diligence records and ongoing monitoring evidence for AI providers",
+            "Privacy metrics dashboard and KPI reporting for AI systems",
+            "Change management procedures with privacy impact assessment integration",
+            "Document retention and management procedures for AI privacy compliance records"
+          ],
+          "industry_best_practices": [
+            "Privacy management system implementation following ISO/IEC 27701:2019 guidelines",
+            "Continuous privacy monitoring using privacy management platforms",
+            "Privacy training programs using IAPP curricula and industry best practices",
+            "Vendor risk management platforms for ongoing AI provider monitoring",
+            "Privacy metrics frameworks using quantitative privacy risk measurement",
+            "Change management integration with DevOps and MLOps pipelines",
+            "Document management systems with automated retention and disposal",
+            "Privacy dashboards using business intelligence and analytics platforms"
+          ],
+          "common_compliance_gaps": [
+            "Missing AI-specific privacy governance and role definition",
+            "Insufficient privacy monitoring and automated compliance checking",
+            "Lack of AI-focused privacy training for development teams",
+            "Missing ongoing vendor monitoring for AI service providers",
+            "Inadequate change management integration with AI system updates"
+          ]
+        },
+        "Domain_VI_Respond": {
+          "title": "AI Privacy Incident Response and Breach Management",
+          "focus": "Privacy incident detection, response, and remediation for AI systems",
+          "requirements": [
+            "AI-specific privacy incident detection and classification procedures",
+            "Privacy breach response procedures for AI systems with automated notification triggers",
+            "Data subject notification procedures for AI-related privacy incidents with clear communication",
+            "Regulatory notification procedures for AI privacy breaches with jurisdiction mapping",
+            "Incident investigation and forensics procedures for AI system privacy failures",
+            "Privacy incident remediation and corrective action procedures with AI model updates",
+            "Post-incident review and lessons learned procedures for AI privacy program improvement",
+            "Cross-border incident response coordination for AI systems operating globally"
+          ],
+          "evidence_required": [
+            "AI privacy incident response plan with specific AI failure scenarios and response procedures",
+            "Incident detection and monitoring systems with AI anomaly detection capabilities",
+            "Data subject notification templates and procedures with clear language requirements",
+            "Regulatory notification procedures and templates with jurisdiction-specific requirements",
+            "Incident investigation procedures and forensics capabilities for AI system analysis",
+            "Remediation tracking and corrective action evidence with AI model improvement records",
+            "Post-incident review documentation and lessons learned with process improvements",
+            "Cross-border incident coordination procedures and authority contact information"
+          ],
+          "industry_best_practices": [
+            "NIST Computer Security Incident Handling Guide (SP 800-61) adapted for privacy incidents",
+            "ENISA Privacy Incident Response methodology for EU jurisdictions",
+            "Privacy incident response automation using SOAR platforms",
+            "AI anomaly detection for privacy incident identification",
+            "Incident communication templates following regulatory guidance",
+            "Digital forensics tools and procedures for AI system investigation",
+            "Post-incident analysis using root cause analysis and improvement planning",
+            "Cross-border incident response using established authority cooperation mechanisms"
+          ],
+          "common_compliance_gaps": [
+            "Missing AI-specific incident detection and classification procedures",
+            "Inadequate incident investigation capabilities for AI system failures",
+            "Insufficient cross-border incident response coordination",
+            "Missing automated incident detection for AI privacy anomalies",
+            "Lack of AI-specific incident remediation and model improvement procedures"
+          ]
+        },
+        "Privacy_by_Design_AI": {
+          "title": "Privacy by Design Principles for AI Systems",
+          "focus": "Foundational privacy principles embedded in AI system architecture",
+          "requirements": [
+            "Proactive not Reactive: Privacy protection embedded in AI system design before privacy issues arise",
+            "Privacy as the Default: AI systems configured with maximum privacy protection by default",
+            "Privacy Embedded into Design: Privacy considerations integrated into AI architecture from conception",
+            "Full Functionality: AI system privacy protection without sacrificing functionality",
+            "End-to-End Security: Privacy protection throughout entire AI system lifecycle",
+            "Visibility and Transparency: AI processing activities visible and transparent to stakeholders",
+            "Respect for User Privacy: AI systems designed with user privacy as paramount concern"
+          ],
+          "evidence_required": [
+            "Privacy by Design implementation documentation with AI architecture diagrams",
+            "Default privacy configuration evidence with maximum protection settings",
+            "Design documentation showing privacy integration throughout AI development lifecycle",
+            "Functionality testing evidence demonstrating privacy protection without performance degradation",
+            "End-to-end security implementation with AI system lifecycle protection",
+            "Transparency mechanisms documentation with AI processing visibility",
+            "User privacy protection evidence with privacy-centric design decisions"
+          ],
+          "industry_best_practices": [
+            "Privacy by Design foundational principles by Ann Cavoukian",
+            "Privacy engineering methodologies for AI system development",
+            "Privacy-preserving machine learning techniques integration",
+            "User-centric privacy design with consent and control mechanisms",
+            "Privacy impact assessment integration into AI development processes",
+            "Privacy metrics and measurement for AI system privacy effectiveness",
+            "Privacy testing and validation procedures for AI systems"
+          ],
+          "common_compliance_gaps": [
+            "Retrofitting privacy controls instead of building them into AI design",
+            "Missing default privacy configurations for AI systems",
+            "Insufficient privacy integration throughout AI development lifecycle",
+            "Lack of transparency mechanisms for AI processing activities",
+            "Missing user-centric privacy controls and consent mechanisms"
+          ]
+        },
+        "Automated_Decision_Making": {
+          "title": "Automated Decision-Making Privacy Compliance",
+          "focus": "Privacy compliance for AI systems making automated decisions about individuals",
+          "requirements": [
+            "GDPR Article 22 compliance with automated decision-making restrictions and safeguards",
+            "CCPA/CPRA Automated Decision-Making Technology (ADMT) disclosure and opt-out requirements",
+            "Meaningful human involvement and oversight in automated decision-making processes",
+            "Logic disclosure and explanation rights for automated decisions affecting individuals",
+            "Automated decision impact assessment with bias and discrimination evaluation",
+            "Opt-out mechanisms and alternative decision-making processes for affected individuals",
+            "Regular auditing and testing of automated decision-making systems for fairness and accuracy",
+            "Documentation and record-keeping for automated decision-making compliance evidence"
+          ],
+          "evidence_required": [
+            "GDPR Article 22 compliance documentation with safeguards and human involvement evidence",
+            "CCPA/CPRA ADMT disclosure documentation and opt-out mechanism implementation",
+            "Human oversight procedures and evidence with meaningful involvement requirements",
+            "Logic disclosure procedures and explanation mechanisms for automated decisions",
+            "Automated decision impact assessment with bias testing and mitigation evidence",
+            "Opt-out mechanism implementation and alternative process documentation",
+            "Audit reports and testing evidence for automated decision-making system fairness",
+            "Compliance documentation and record-keeping with regulatory requirement mapping"
+          ],
+          "industry_best_practices": [
+            "EU AI Act high-risk AI system compliance for automated decision-making",
+            "Algorithmic accountability frameworks and transparency requirements",
+            "Fairness-aware machine learning techniques and bias mitigation strategies",
+            "Explainable AI techniques for decision transparency and logic disclosure",
+            "Human-in-the-loop design patterns for meaningful human oversight",
+            "Automated decision auditing tools and algorithmic impact assessment",
+            "Regulatory compliance automation and documentation management"
+          ],
+          "common_compliance_gaps": [
+            "Missing meaningful human involvement in automated decision-making processes",
+            "Inadequate logic disclosure and explanation mechanisms",
+            "Insufficient bias testing and discrimination evaluation",
+            "Missing opt-out mechanisms and alternative decision processes",
+            "Lack of regular auditing and fairness testing for automated decisions"
+          ]
+        }
+      },
+      "guidance_documents": [
+        "https://iapp.org/resources/article/the-cipm-body-of-knowledge/",
+        "https://iapp.org/media/pdf/resource_center/CIPM_Candidate_Handbook.pdf",
+        "https://www.privacyassociation.org/resource_center/privacy_by_design_for_ai",
+        "https://iapp.org/news/a/looking-ahead-governance-frameworks-for-responsible-ai/",
+        "https://iapp.org/resources/article/automated-decision-making-privacy-compliance-guide/"
+      ],
+      "integration_with_regulations": {
+        "GDPR_integration": "CIPM frameworks provide operational guidance for GDPR Articles 25 (Privacy by Design), 22 (Automated Decision-Making), and 35 (DPIA) implementation in AI contexts",
+        "CCPA_CPRA_integration": "CIPM provides structured approach for CCPA/CPRA Automated Decision-Making Technology (ADMT) compliance and consumer rights fulfillment",
+        "EU_AI_Act_integration": "CIPM privacy risk management complements EU AI Act requirements for high-risk AI systems and fundamental rights impact assessments"
+      },
+      "ai_privacy_metrics": {
+        "privacy_risk_score": "Quantitative measurement of AI system privacy risk using likelihood and impact assessment",
+        "compliance_coverage": "Percentage of applicable privacy requirements covered by implemented controls",
+        "incident_response_time": "Time to detect, respond, and remediate AI privacy incidents",
+        "data_subject_rights_fulfillment": "Percentage of data subject requests fulfilled within regulatory timeframes",
+        "privacy_by_design_maturity": "Assessment of privacy integration throughout AI development lifecycle"
+      },
+      "implementation_roadmap": {
+        "phase_1_assessment": "Privacy risk assessment and gap analysis for AI systems (Months 1-3)",
+        "phase_2_controls": "Privacy controls implementation and safeguards deployment (Months 4-9)",
+        "phase_3_monitoring": "Ongoing monitoring and compliance management program (Months 10-12)",
+        "phase_4_optimization": "Continuous improvement and optimization of AI privacy program (Ongoing)"
+      }
+    },
+    "EU_AI_Act": {
+      "scope": "AI systems placed on the EU market or put into service",
+      "official_link": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "enforcement_authority": "National competent authorities and European AI Office",
+      "applicability_threshold": "All AI systems with risk-based obligations",
+      "risk_categories": {
+        "unacceptable": "Prohibited AI practices (Article 5) - banned from EU market",
+        "high": "Strict regulatory requirements (Articles 9-15) - conformity assessment required",
+        "limited": "Transparency obligations only (Article 50) - disclosure requirements",
+        "minimal": "No mandatory obligations - voluntary codes of conduct"
+      },
+      "high_risk_use_cases": [
+        "Biometric identification and categorisation of natural persons",
+        "Management and operation of critical infrastructure",
+        "Education and vocational training",
+        "Employment, workers management and access to self-employment",
+        "Access to and enjoyment of essential private services and public services",
+        "Law enforcement",
+        "Migration, asylum and border control management",
+        "Administration of justice and democratic processes"
+      ],
+      "key_articles": {
+        "Articles_9_15": {
+          "title": "Requirements for High-Risk AI Systems",
+          "link": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj#d1e2234-1-1",
+          "recital_references": ["Recital 67", "Recital 68", "Recital 69", "Recital 70"],
+          "requirements": [
+            "Risk management system throughout AI system lifecycle with continuous monitoring",
+            "High-quality training, validation and testing data sets with bias assessment",
+            "Documentation and record-keeping obligations with technical documentation",
+            "Transparency and information provision to users with clear instructions",
+            "Human oversight measures and capabilities with meaningful human control",
+            "Appropriate accuracy, robustness and cybersecurity levels with testing evidence",
+            "Registration in EU database with system information and updates",
+            "Post-market monitoring system with performance monitoring and incident reporting",
+            "Conformity assessment procedures with notified body involvement where required"
+          ],
+          "evidence_required": [
+            "Risk management system documentation with lifecycle risk assessment",
+            "Data governance and quality assurance procedures with bias testing results",
+            "Technical documentation and conformity assessment with CE marking evidence",
+            "User information and transparency measures with instruction manuals",
+            "Human oversight implementation evidence with control mechanism documentation",
+            "Accuracy and robustness testing results with performance benchmarks",
+            "EU database registration confirmation with system registration details",
+            "Post-market monitoring procedures and reports with incident tracking",
+            "Conformity assessment documentation with notified body certificates",
+            "Quality management system evidence with ISO 9001 or equivalent",
+            "Declaration of conformity with regulatory compliance attestation",
+            "Fundamental rights impact assessment with discrimination risk evaluation"
+          ],
+          "industry_best_practices": [
+            "Apply ISO/IEC 23053:2022 framework for AI systems using machine learning",
+            "Use IEEE 2857 standard for privacy engineering and risk management",
+            "Implement NIST AI Risk Management Framework for comprehensive governance",
+            "Apply ISO/IEC 23894:2023 for AI risk management",
+            "Use ALTAI (Assessment List for Trustworthy AI) self-assessment tool",
+            "Implement MLOps practices for continuous model monitoring and governance",
+            "Apply fairness-aware machine learning techniques for bias mitigation",
+            "Use explainable AI (XAI) techniques for transparency and interpretability"
+          ],
+          "common_compliance_gaps": [
+            "Insufficient risk management system documentation and lifecycle coverage",
+            "Missing bias assessment and mitigation for training data",
+            "Inadequate human oversight implementation and meaningful control",
+            "Lack of post-market monitoring and incident reporting procedures",
+            "Missing fundamental rights impact assessment and discrimination evaluation"
+          ]
+        },
+        "Articles_16_17": {
+          "title": "Quality Management System",
+          "link": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj#d1e2890-1-1",
+          "recital_references": ["Recital 71", "Recital 72"],
+          "requirements": [
+            "Systematic quality management system for high-risk AI with documented procedures",
+            "Quality planning and quality assurance procedures with risk-based approach",
+            "Design and development procedures with validation and verification",
+            "Testing and validation procedures with statistical methods and benchmarks",
+            "Post-market monitoring and corrective action procedures with incident management"
+          ],
+          "evidence_required": [
+            "Quality management system documentation with ISO 9001 alignment",
+            "Quality planning and assurance procedures with risk assessment integration",
+            "Design and development process records with stage-gate reviews",
+            "Testing and validation protocols and results with statistical significance",
+            "Post-market monitoring and corrective action records with trend analysis",
+            "Management review records with continuous improvement evidence",
+            "Internal audit reports with quality system effectiveness assessment",
+            "Corrective and preventive action (CAPA) procedures and records",
+            "Document control and change management procedures",
+            "Training records for quality management system personnel"
+          ],
+          "industry_best_practices": [
+            "Implement ISO 9001:2015 quality management system",
+            "Apply ISO/IEC 90003 for software quality management",
+            "Use CMMI (Capability Maturity Model Integration) for process improvement",
+            "Implement Six Sigma methodologies for quality improvement",
+            "Apply lean principles for waste reduction and efficiency",
+            "Use statistical process control for quality monitoring",
+            "Implement design controls per ISO 13485 for medical device AI",
+            "Apply agile quality practices for iterative AI development"
+          ],
+          "common_compliance_gaps": [
+            "Missing systematic quality management system documentation",
+            "Inadequate design controls and validation procedures",
+            "Insufficient post-market monitoring and corrective action processes",
+            "Lack of management review and continuous improvement evidence",
+            "Missing training and competency management for quality personnel"
+          ]
+        }
+      },
+      "guidance_documents": [
+        "https://digital-strategy.ec.europa.eu/en/policies/european-approach-artificial-intelligence",
+        "https://artificialintelligenceact.eu/the-act/",
+        "https://ec.europa.eu/newsroom/dae/redirection/document/94478",
+        "https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai"
+      ],
+      "penalties": "Up to €40M or 7% of global annual turnover for prohibited practices, €20M or 4% for high-risk system violations",
+      "implementation_timeline": {
+        "prohibited_practices": "February 2, 2025",
+        "general_purpose_ai_models": "August 2, 2025", 
+        "high_risk_systems": "August 2, 2026",
+        "full_implementation": "August 2, 2027"
+      },
+      "recent_developments": [
+        "European AI Office established within European Commission (2024)",
+        "Codes of practice for general-purpose AI models under development",
+        "Member States designating national competent authorities",
+        "Industry consultation on technical standards ongoing"
+      ]
+    },
+    "NIST_AI_RMF": {
+      "scope": "Risk management framework for AI systems",
+      "official_link": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "framework_version": "NIST AI RMF 1.0 (January 2023)",
+      "applicability": "Voluntary framework for all organizations developing, deploying, or using AI systems",
+      "core_characteristics": [
+        "Trustworthy AI characteristics: Valid and reliable, Safe, Fair and non-discriminatory, Explainable and interpretable, Privacy-enhanced, Human-AI configuration, Accountable and transparent, Regularly monitored"
+      ],
+      "framework_functions": {
+        "GOVERN": {
+          "title": "Govern Function",
+          "link": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf#page=47",
+          "description": "Cultivates a culture of risk management and establishes structures for accountability",
+          "practices": [
+            "GV-1.1: Establish AI governance structure and accountability with clear roles",
+            "GV-1.2: Define AI principles and policies aligned with organizational values",
+            "GV-1.3: Manage AI risk appetite and tolerance with quantified thresholds",
+            "GV-2.1: Provide oversight and periodic review of AI risks with board involvement",
+            "GV-3.1: Establish responsible AI team structure and expertise with defined competencies",
+            "GV-4.1: AI risk culture and continuous learning with awareness programs",
+            "GV-5.1: Organizational AI risk management processes and procedures",
+            "GV-6.1: AI risk management is integrated into organizational risk management"
+          ],
+          "evidence_required": [
+            "AI governance charter and organizational structure with reporting lines",
+            "AI principles and policy documentation with stakeholder approval",
+            "Risk appetite and tolerance statements with quantified metrics",
+            "Risk oversight and review procedures with board reporting schedules",
+            "Responsible AI team roles and responsibilities with competency requirements",
+            "Risk culture assessment and training records with completion tracking",
+            "AI risk management integration documentation with enterprise risk management",
+            "Stakeholder engagement records with feedback incorporation evidence",
+            "AI governance committee meeting minutes with decision documentation",
+            "AI risk management policy updates and version control records"
+          ],
+          "industry_best_practices": [
+            "Establish AI Center of Excellence (CoE) with cross-functional representation",
+            "Implement AI ethics board with external expert participation",
+            "Use AI governance platforms for centralized policy management",
+            "Apply responsible AI maturity models for capability assessment",
+            "Implement AI risk appetite frameworks with quantitative metrics",
+            "Use AI governance dashboards for real-time risk monitoring",
+            "Apply stakeholder engagement frameworks for inclusive governance",
+            "Implement continuous learning programs for AI risk awareness"
+          ],
+          "common_implementation_gaps": [
+            "Lack of clear AI governance structure and accountability",
+            "Missing integration with enterprise risk management processes",
+            "Insufficient stakeholder engagement and feedback mechanisms",
+            "Inadequate AI risk culture and awareness programs",
+            "Missing quantified risk appetite and tolerance statements"
+          ]
+        },
+        "MAP": {
+          "title": "Map Function",
+          "link": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf#page=53",
+          "description": "Establishes the context to frame AI risks for individuals, organizations, and society",
+          "practices": [
+            "MP-1.1: AI system contextualization and classification with use case analysis",
+            "MP-2.1: Categorization of AI system impacts on individuals and society",
+            "MP-3.1: AI system requirements and design mapping with stakeholder needs",
+            "MP-4.1: Task formulation and AI system alignment with intended outcomes",
+            "MP-5.1: Impact assessment methodology with quantitative and qualitative measures",
+            "MP-6.1: AI system interdependencies and downstream effects mapping"
+          ],
+          "evidence_required": [
+            "AI system classification and context documentation with use case descriptions",
+            "Impact categorization and assessment records with stakeholder analysis",
+            "Requirements mapping and design documentation with traceability matrix",
+            "Task formulation and alignment evidence with success criteria definition",
+            "Impact assessment methodology and results with quantitative metrics",
+            "AI system interdependency mapping with downstream effect analysis",
+            "Stakeholder identification and engagement documentation",
+            "AI system boundary definition with scope and limitations",
+            "Risk context establishment with environmental and operational factors",
+            "AI system lifecycle stage identification with phase-specific risks"
+          ],
+          "industry_best_practices": [
+            "Use AI system cards for standardized documentation",
+            "Apply model cards for machine learning model documentation",
+            "Implement AI impact assessment frameworks (e.g., Algorithmic Impact Assessment)",
+            "Use stakeholder mapping techniques for comprehensive impact analysis",
+            "Apply systems thinking approaches for interdependency analysis",
+            "Implement AI system taxonomy for consistent classification",
+            "Use risk heat maps for visual risk communication",
+            "Apply scenario planning for future impact assessment"
+          ],
+          "common_implementation_gaps": [
+            "Insufficient AI system contextualization and boundary definition",
+            "Missing comprehensive stakeholder impact analysis",
+            "Inadequate interdependency and downstream effect mapping",
+            "Lack of quantitative impact assessment methodologies",
+            "Missing AI system classification and taxonomy application"
+          ]
+        },
+        "MEASURE": {
+          "title": "Measure Function",
+          "link": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf#page=59",
+          "description": "Employs appropriate methods and metrics to analyze, assess, benchmark, and monitor AI risks",
+          "practices": [
+            "MS-1.1: Establish measurement methodology for AI risks with quantitative metrics",
+            "MS-2.1: Test AI system performance and reliability with statistical validation",
+            "MS-3.1: Monitor AI system metrics and benchmarks with continuous tracking",
+            "MS-4.1: Validate AI system trustworthiness with multi-dimensional assessment",
+            "MS-5.1: AI system measurement results inform risk management decisions"
+          ],
+          "evidence_required": [
+            "Risk measurement methodology documentation with metric definitions",
+            "Performance and reliability testing results with statistical significance",
+            "Monitoring metrics and benchmark reports with trend analysis",
+            "Trustworthiness validation evidence with multi-criteria assessment",
+            "Measurement results integration with risk management decision records",
+            "AI system performance baselines and thresholds documentation",
+            "Continuous monitoring dashboards and alerting systems",
+            "Bias and fairness measurement results with demographic analysis",
+            "Explainability and interpretability assessment evidence",
+            "Robustness and adversarial testing results with attack scenarios"
+          ],
+          "industry_best_practices": [
+            "Implement MLOps pipelines for continuous model monitoring",
+            "Use fairness metrics (e.g., demographic parity, equalized odds)",
+            "Apply explainability techniques (LIME, SHAP, attention mechanisms)",
+            "Implement adversarial robustness testing with attack libraries",
+            "Use statistical testing for model performance validation",
+            "Apply A/B testing for AI system performance comparison",
+            "Implement drift detection for data and model performance",
+            "Use benchmarking datasets for standardized performance assessment"
+          ],
+          "common_implementation_gaps": [
+            "Missing quantitative risk measurement methodologies",
+            "Insufficient continuous monitoring and alerting systems",
+            "Lack of comprehensive trustworthiness assessment frameworks",
+            "Missing bias and fairness measurement implementation",
+            "Inadequate integration of measurement results with risk decisions"
+          ]
+        },
+        "MANAGE": {
+          "title": "Manage Function",
+          "link": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf#page=65",
+          "description": "Allocates risk resources and implements risk response to address identified AI risks",
+          "practices": [
+            "MG-1.1: Regular monitoring and maintenance of AI systems with proactive management",
+            "MG-2.1: Risk response and mitigation strategies with prioritized action plans",
+            "MG-3.1: Response actions for identified AI incidents with escalation procedures",
+            "MG-4.1: Documentation and reporting of AI risk activities with stakeholder communication",
+            "MG-5.1: AI risk management resources are allocated and managed effectively"
+          ],
+          "evidence_required": [
+            "AI system monitoring and maintenance procedures with scheduled activities",
+            "Risk response and mitigation plans with prioritization and timelines",
+            "Incident response procedures and records with root cause analysis",
+            "Risk activity documentation and reporting with stakeholder communications",
+            "Resource allocation documentation with budget and personnel assignments",
+            "Risk treatment implementation evidence with progress tracking",
+            "Continuous improvement procedures with lessons learned integration",
+            "Stakeholder communication records with feedback incorporation",
+            "Risk management effectiveness assessment with performance metrics",
+            "Third-party risk management procedures with vendor oversight"
+          ],
+          "industry_best_practices": [
+            "Implement AI incident response frameworks with defined escalation paths",
+            "Use risk treatment matrices for systematic risk response planning",
+            "Apply continuous improvement methodologies (PDCA, Kaizen)",
+            "Implement automated risk response and remediation where possible",
+            "Use risk dashboards for real-time risk management visibility",
+            "Apply change management processes for AI system updates",
+            "Implement stakeholder communication frameworks for risk transparency",
+            "Use risk management maturity models for capability assessment"
+          ],
+          "common_implementation_gaps": [
+            "Missing proactive AI system monitoring and maintenance procedures",
+            "Inadequate incident response procedures for AI-specific scenarios",
+            "Lack of systematic risk treatment and mitigation implementation",
+            "Insufficient resource allocation for AI risk management activities",
+            "Missing continuous improvement and lessons learned integration"
+          ]
+        }
+      },
+      "guidance_documents": [
+        "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf",
+        "https://airc.nist.gov/AI_RMF_Knowledge_Base",
+        "https://www.nist.gov/itl/ai-risk-management-framework/ai-rmf-companion-resource",
+        "https://pages.nist.gov/AIRMF/"
+      ],
+      "companion_resources": [
+        "AI RMF Playbook for practical implementation guidance",
+        "AI RMF Crosswalk for mapping to other frameworks",
+        "AI RMF Profiles for sector-specific guidance",
+        "AI RMF Community of Interest for stakeholder engagement"
+      ]
+    },
+    "OWASP_AI_Security": {
+      "scope": "Security principles and controls for AI systems",
+      "official_link": "https://owasp.org/www-project-ai-security-and-privacy-guide/",
+      "framework_version": "OWASP AI Security and Privacy Guide v1.1",
+      "applicability": "Organizations developing, deploying, or using AI systems requiring security controls",
+      "top_10_ai_risks": [
+        "LLM01: Prompt Injection",
+        "LLM02: Insecure Output Handling", 
+        "LLM03: Training Data Poisoning",
+        "LLM04: Model Denial of Service",
+        "LLM05: Supply Chain Vulnerabilities",
+        "LLM06: Sensitive Information Disclosure",
+        "LLM07: Insecure Plugin Design",
+        "LLM08: Excessive Agency",
+        "LLM09: Overreliance",
+        "LLM10: Model Theft"
+      ],
+      "security_pillars": {
+        "AI_Governance": {
+          "title": "AI Governance Pillar",
+          "description": "Establishes organizational structures and processes for AI security governance",
+          "practices": [
+            "Establish AI security governance framework with clear accountability",
+            "Define AI security policies and procedures with risk-based approach",
+            "Implement AI security risk assessment processes with threat modeling",
+            "Maintain AI security compliance monitoring with continuous assessment",
+            "Establish AI security incident response procedures with escalation paths",
+            "Implement AI security awareness and training programs"
+          ],
+          "evidence_required": [
+            "AI security governance framework documentation with roles and responsibilities",
+            "Security policies and procedures for AI systems with approval records",
+            "Security risk assessment methodology and results with threat models",
+            "Compliance monitoring and reporting procedures with audit trails",
+            "AI security incident response procedures with testing evidence",
+            "Security awareness and training programs with completion tracking",
+            "AI security governance committee meeting minutes and decisions",
+            "Security policy exception and waiver procedures with approvals",
+            "Third-party AI security assessment requirements and results",
+            "AI security metrics and KPI reporting with trend analysis"
+          ],
+          "industry_best_practices": [
+            "Apply NIST Cybersecurity Framework for AI security governance",
+            "Implement ISO/IEC 27001 controls for AI system security management",
+            "Use FAIR methodology for quantitative AI security risk assessment",
+            "Apply SABSA architecture framework for AI security design",
+            "Implement security by design principles for AI development",
+            "Use threat modeling methodologies (STRIDE, PASTA) for AI systems",
+            "Apply zero trust principles for AI system access control",
+            "Implement DevSecOps practices for secure AI development"
+          ],
+          "common_implementation_gaps": [
+            "Missing AI-specific security governance structures and processes",
+            "Inadequate threat modeling for AI system vulnerabilities",
+            "Insufficient security awareness training for AI-specific threats",
+            "Lack of AI security incident response procedures and testing",
+            "Missing continuous security monitoring for AI systems"
+          ]
+        },
+        "IT_Security": {
+          "title": "IT Security Pillar",
+          "description": "Traditional IT security controls adapted for AI system infrastructure",
+          "practices": [
+            "Secure AI infrastructure and architecture with defense in depth",
+            "Implement access controls and authentication with zero trust principles",
+            "Maintain secure development lifecycle for AI with security gates",
+            "Conduct security testing and vulnerability management with AI-specific tools",
+            "Implement network security controls for AI system communications",
+            "Establish secure configuration management for AI infrastructure"
+          ],
+          "evidence_required": [
+            "AI infrastructure security architecture documentation with network diagrams",
+            "Access control and authentication implementation with role-based permissions",
+            "Secure development lifecycle procedures with security checkpoints",
+            "Security testing results and vulnerability reports with remediation tracking",
+            "Network security controls implementation with traffic monitoring",
+            "Configuration management procedures with baseline hardening standards",
+            "Security monitoring and logging implementation with SIEM integration",
+            "Incident response procedures with AI infrastructure scenarios",
+            "Backup and recovery procedures with AI system restoration testing",
+            "Security patch management procedures with AI system impact assessment"
+          ],
+          "industry_best_practices": [
+            "Apply CIS Controls for AI infrastructure security hardening",
+            "Implement NIST SP 800-53 security controls for AI systems",
+            "Use container security best practices for AI workloads",
+            "Apply cloud security frameworks (CSA CCM, AWS Well-Architected)",
+            "Implement infrastructure as code (IaC) security scanning",
+            "Use security orchestration and automated response (SOAR)",
+            "Apply microsegmentation for AI system network isolation",
+            "Implement secrets management for AI system credentials"
+          ],
+          "common_implementation_gaps": [
+            "Insufficient network segmentation for AI system isolation",
+            "Missing security controls for AI development environments",
+            "Inadequate secrets management for AI system credentials",
+            "Lack of security monitoring for AI infrastructure components",
+            "Missing security testing for AI-specific attack vectors"
+          ]
+        },
+        "AI_Specific_Security": {
+          "title": "AI-Specific Security Pillar", 
+          "description": "Security controls specific to AI system vulnerabilities and attack vectors",
+          "practices": [
+            "Protect against adversarial attacks and model theft with robust defenses",
+            "Implement model integrity and authenticity controls with digital signatures",
+            "Secure AI model training and inference processes with isolation",
+            "Monitor for AI-specific threats and anomalies with behavioral analysis",
+            "Implement prompt injection protection for language models",
+            "Establish model versioning and rollback capabilities for security incidents"
+          ],
+          "evidence_required": [
+            "Adversarial attack protection measures with robustness testing results",
+            "Model integrity and authenticity verification with cryptographic controls",
+            "Secure training and inference procedures with environment isolation",
+            "AI threat monitoring and anomaly detection systems with alert procedures",
+            "Prompt injection protection implementation with input validation",
+            "Model versioning and rollback procedures with incident response integration",
+            "AI red team testing results with attack scenario documentation",
+            "Model watermarking and fingerprinting implementation evidence",
+            "AI system behavioral monitoring with baseline establishment",
+            "Secure model deployment procedures with integrity verification"
+          ],
+          "industry_best_practices": [
+            "Apply adversarial training techniques for model robustness",
+            "Implement model distillation for intellectual property protection",
+            "Use federated learning for distributed model training security",
+            "Apply homomorphic encryption for privacy-preserving computation",
+            "Implement secure multi-party computation for collaborative AI",
+            "Use differential privacy for training data protection",
+            "Apply AI red teaming methodologies for security testing",
+            "Implement model monitoring for drift and anomaly detection"
+          ],
+          "common_implementation_gaps": [
+            "Missing adversarial robustness testing and protection measures",
+            "Inadequate model integrity and authenticity verification",
+            "Lack of AI-specific threat monitoring and detection capabilities",
+            "Insufficient protection against model theft and extraction attacks",
+            "Missing prompt injection and input validation controls"
+          ]
+        },
+        "Data_Science_Security": {
+          "title": "Data Science Security Pillar",
+          "description": "Security controls for data science workflows and AI model development",
+          "practices": [
+            "Secure data collection and preprocessing with validation controls",
+            "Implement data validation and quality controls with automated testing",
+            "Protect training data and model parameters with encryption and access controls",
+            "Maintain data lineage and provenance tracking with audit trails",
+            "Establish secure data sharing and collaboration procedures",
+            "Implement data poisoning detection and prevention measures"
+          ],
+          "evidence_required": [
+            "Data collection and preprocessing security procedures with validation rules",
+            "Data validation and quality control evidence with automated testing results",
+            "Training data and model parameter protection measures with encryption evidence",
+            "Data lineage and provenance tracking systems with audit trail documentation",
+            "Secure data sharing procedures with access control implementation",
+            "Data poisoning detection systems with monitoring and alerting capabilities",
+            "Data governance framework with classification and handling procedures",
+            "Secure data storage procedures with encryption at rest and in transit",
+            "Data retention and disposal procedures with secure deletion verification",
+            "Data access logging and monitoring with anomaly detection"
+          ],
+          "industry_best_practices": [
+            "Apply data governance frameworks (DAMA-DMBOK, DCAM)",
+            "Implement data classification and labeling standards",
+            "Use data loss prevention (DLP) tools for sensitive data protection",
+            "Apply statistical disclosure control for data privacy",
+            "Implement secure data anonymization and pseudonymization",
+            "Use data quality frameworks (DQAF, ISO 8000)",
+            "Apply data lineage tools for comprehensive tracking",
+            "Implement automated data validation and testing pipelines"
+          ],
+          "common_implementation_gaps": [
+            "Missing comprehensive data validation and quality controls",
+            "Inadequate protection for training data and model parameters",
+            "Lack of data lineage and provenance tracking systems",
+            "Insufficient data poisoning detection and prevention measures",
+            "Missing secure data sharing and collaboration procedures"
+          ]
+        },
+        "Privacy": {
+          "title": "Privacy Pillar",
+          "description": "Privacy protection controls for AI systems processing personal data",
+          "practices": [
+            "Implement privacy-preserving AI techniques with technical safeguards",
+            "Conduct privacy impact assessments for AI with comprehensive analysis",
+            "Apply differential privacy and federated learning for data protection",
+            "Maintain data subject rights compliance with automated procedures",
+            "Establish privacy by design principles in AI development",
+            "Implement consent management and data minimization controls"
+          ],
+          "evidence_required": [
+            "Privacy-preserving AI technique implementation with technical documentation",
+            "Privacy impact assessment documentation with risk analysis and mitigation",
+            "Differential privacy and federated learning evidence with parameter settings",
+            "Data subject rights compliance procedures with automated response capabilities",
+            "Privacy by design implementation with architectural documentation",
+            "Consent management systems with granular control and audit trails",
+            "Data minimization procedures with automated enforcement mechanisms",
+            "Privacy monitoring and reporting systems with compliance dashboards",
+            "Data subject request handling procedures with response time tracking",
+            "Privacy training and awareness programs with completion records"
+          ],
+          "industry_best_practices": [
+            "Apply Privacy by Design foundational principles",
+            "Implement NIST Privacy Framework controls",
+            "Use privacy-enhancing technologies (PETs) for data protection",
+            "Apply privacy engineering methodologies",
+            "Implement privacy-preserving machine learning techniques",
+            "Use consent management platforms (CMPs) for user control",
+            "Apply privacy risk assessment frameworks",
+            "Implement automated privacy compliance monitoring"
+          ],
+          "common_implementation_gaps": [
+            "Missing privacy-preserving AI technique implementation",
+            "Inadequate privacy impact assessments for AI systems",
+            "Lack of automated data subject rights compliance procedures",
+            "Insufficient privacy by design implementation in AI development",
+            "Missing comprehensive consent management and data minimization"
+          ]
+        }
+      },
+      "guidance_documents": [
+        "https://owasp.org/www-project-ai-security-and-privacy-guide/",
+        "https://github.com/OWASP/www-project-ai-security-and-privacy-guide",
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        "https://owasp.org/www-project-machine-learning-security-top-10/"
+      ],
+      "related_projects": [
+        "OWASP Top 10 for Large Language Model Applications",
+        "OWASP Machine Learning Security Top 10",
+        "OWASP Application Security Verification Standard (ASVS)",
+        "OWASP Software Assurance Maturity Model (SAMM)"
+      ]
+    },
+    "ISO_Standards": {
+      "scope": "International standards for AI governance and security",
+      "applicability": "Organizations seeking internationally recognized standards for AI system management",
+      "key_standards": {
+        "ISO_27001_2022": {
+          "title": "Information Security Management Systems",
+          "official_link": "https://www.iso.org/standard/27001",
+          "version": "ISO/IEC 27001:2022",
+          "description": "International standard for information security management systems with AI-specific applications",
+          "ai_relevant_controls": [
+            "A.5.1 Information security policies for AI systems with governance framework",
+            "A.5.7 Threat intelligence relevant to AI threats and attack vectors",
+            "A.6.8 Independent review of information security for AI system assessments",
+            "A.8.2 Data classification for AI training and inference data with sensitivity levels",
+            "A.8.3 Data handling procedures for AI systems with lifecycle management",
+            "A.8.24 Use of cryptography in AI systems for data and model protection",
+            "A.11.14 Secure development lifecycle for AI systems with security gates",
+            "A.12.6 Management of technical vulnerabilities for AI-specific weaknesses",
+            "A.16.1 Management of information security incidents for AI system failures",
+            "A.18.1 Compliance with legal and contractual requirements for AI regulations"
+          ],
+          "evidence_required": [
+            "Information security management system documentation with AI scope definition",
+            "AI-specific security policies and procedures with approval records",
+            "Risk assessment and treatment records with AI system risk analysis",
+            "Security control implementation evidence with AI system coverage",
+            "Internal audit reports and management reviews with AI security assessment",
+            "Statement of Applicability (SoA) with AI-specific control justifications",
+            "Security incident management records with AI system incident handling",
+            "Compliance monitoring evidence with AI regulatory requirements",
+            "Security awareness training records with AI threat education",
+            "Vendor security assessments with AI service provider evaluations"
+          ],
+          "industry_best_practices": [
+            "Integrate AI risk assessment with ISO 27001 risk management process",
+            "Apply AI-specific threat modeling within security risk assessment",
+            "Implement continuous monitoring for AI system security controls",
+            "Use automated security testing for AI system vulnerabilities",
+            "Apply security by design principles for AI system development",
+            "Implement AI security metrics and KPIs for management reporting",
+            "Use threat intelligence feeds for AI-specific attack patterns",
+            "Apply zero trust principles for AI system access control"
+          ],
+          "common_implementation_gaps": [
+            "Missing AI-specific risk assessment and treatment procedures",
+            "Inadequate security controls for AI development and deployment",
+            "Insufficient threat intelligence for AI-specific attack vectors",
+            "Lack of AI system security incident response procedures",
+            "Missing compliance monitoring for AI regulatory requirements"
+          ]
+        },
+        "ISO_23053_2022": {
+          "title": "Framework for AI systems using machine learning",
+          "official_link": "https://www.iso.org/standard/74438.html",
+          "version": "ISO/IEC 23053:2022",
+          "description": "Framework providing guidance for AI systems using machine learning throughout their lifecycle",
+          "framework_components": [
+            "AI system lifecycle management with stage-gate processes",
+            "Risk management for AI systems with comprehensive risk assessment",
+            "Verification and validation of AI systems with testing methodologies",
+            "Data quality and governance for AI with quality assurance procedures",
+            "Human oversight and decision-making processes with meaningful control",
+            "AI system documentation and traceability with audit trails",
+            "Continuous monitoring and maintenance with performance tracking"
+          ],
+          "evidence_required": [
+            "AI system lifecycle documentation with phase definitions and deliverables",
+            "Risk management framework implementation with AI-specific risk categories",
+            "Verification and validation procedures and results with statistical analysis",
+            "Data quality governance evidence with quality metrics and monitoring",
+            "Human oversight implementation documentation with control mechanisms",
+            "AI system documentation with technical specifications and user guides",
+            "Continuous monitoring procedures with performance metrics and alerting",
+            "Change management procedures with impact assessment for AI updates",
+            "Stakeholder engagement records with feedback incorporation evidence",
+            "Compliance assessment documentation with regulatory requirement mapping"
+          ],
+          "industry_best_practices": [
+            "Apply systems engineering principles for AI system development",
+            "Implement MLOps practices for continuous integration and deployment",
+            "Use model governance frameworks for AI system oversight",
+            "Apply agile methodologies adapted for AI development lifecycle",
+            "Implement automated testing pipelines for AI system validation",
+            "Use version control and configuration management for AI artifacts",
+            "Apply continuous monitoring and observability for AI systems",
+            "Implement feedback loops for continuous improvement"
+          ],
+          "common_implementation_gaps": [
+            "Missing systematic AI system lifecycle management processes",
+            "Inadequate verification and validation procedures for AI systems",
+            "Insufficient data quality governance and monitoring procedures",
+            "Lack of meaningful human oversight and control mechanisms",
+            "Missing continuous monitoring and maintenance procedures"
+          ]
+        },
+        "ISO_23894_2023": {
+          "title": "Artificial Intelligence Risk Management",
+          "official_link": "https://www.iso.org/standard/77304.html",
+          "version": "ISO/IEC 23894:2023",
+          "description": "Guidance on risk management for AI systems throughout their lifecycle",
+          "framework_components": [
+            "AI risk management principles and concepts",
+            "AI risk assessment methodologies and techniques",
+            "AI risk treatment strategies and controls",
+            "AI risk monitoring and review processes",
+            "AI risk communication and consultation procedures"
+          ],
+          "evidence_required": [
+            "AI risk management policy and framework documentation",
+            "Risk assessment methodologies with AI-specific risk identification",
+            "Risk treatment plans with mitigation strategies and controls",
+            "Risk monitoring procedures with continuous assessment and reporting",
+            "Risk communication procedures with stakeholder engagement evidence"
+          ],
+          "industry_best_practices": [
+            "Integrate AI risk management with enterprise risk management",
+            "Apply quantitative risk assessment methodologies where possible",
+            "Implement risk-based decision making for AI system deployment",
+            "Use risk appetite frameworks for AI system risk tolerance",
+            "Apply continuous risk monitoring with automated risk indicators",
+            "Implement risk culture and awareness programs for AI risks",
+            "Use risk dashboards and reporting for management visibility",
+            "Apply scenario planning and stress testing for AI risk assessment"
+          ],
+          "common_implementation_gaps": [
+            "Missing comprehensive AI risk management framework",
+            "Inadequate risk assessment methodologies for AI-specific risks",
+            "Insufficient risk treatment and mitigation strategy implementation",
+            "Lack of continuous risk monitoring and review processes",
+            "Missing stakeholder engagement and risk communication procedures"
+          ]
+        }
+      },
+      "guidance_documents": [
+        "https://www.iso.org/committee/45020.html",
+        "https://isotc.iso.org/livelink/livelink?func=ll&objId=19769474",
+        "https://www.iso.org/standard/27001.html",
+        "https://www.iso.org/standard/74438.html",
+        "https://www.iso.org/standard/77304.html"
+      ],
+      "certification_benefits": [
+        "International recognition and credibility for AI governance",
+        "Structured approach to AI risk management and security",
+        "Compliance with regulatory requirements and industry standards",
+        "Improved stakeholder confidence and trust in AI systems",
+        "Competitive advantage through demonstrated AI governance maturity"
+      ]
+    }
+  },
+  "risk_categories": {
+    "1_governance_oversight": {
+      "category_id": "1",
+      "name": "Governance & Oversight Controls",
+      "description": "Formal organizational structures and policy frameworks that establish human oversight mechanisms and decision protocols to ensure human accountability, ethical conduct, and risk management throughout AI development and deployment",
+      "subcategories": {
+        "1.1_board_structure": {
+          "id": "1.1",
+          "name": "Board Structure & Oversight",
+          "description": "Governance frameworks, high-level organizational policies, charters, and oversight bodies that set AI risk appetite, principles, and remit",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Supplier has adequate AI governance structure",
+              "Clear accountability for AI-related decisions",
+              "Board-level oversight of AI risks",
+              "Defined AI risk appetite and tolerance"
+            ],
+            "evaluation_criteria": [
+              "Existence of AI governance board or committee",
+              "Documented AI governance policies",
+              "Clear roles and responsibilities",
+              "Regular governance reviews"
+            ],
+            "rfp_questions": [
+              "Describe your organization's AI governance structure",
+              "Who has ultimate accountability for AI risks?",
+              "How often does your board review AI risks?",
+              "What is your organization's AI risk appetite?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Inadequate governance structure",
+              "Unclear accountability",
+              "Lack of board oversight",
+              "Misaligned risk appetite"
+            ],
+            "mitigation_strategies": [
+              "Establish AI governance committee",
+              "Define clear roles and responsibilities",
+              "Implement regular board reporting",
+              "Document AI risk appetite statement"
+            ],
+            "compliance_evidence": [
+              "AI governance charter",
+              "Board meeting minutes",
+              "Risk appetite statement",
+              "Organizational chart with AI roles"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 3,
+            "impact": 4,
+            "score": 12,
+            "level": "medium"
+          },
+          "regulatory_mapping": ["GDPR", "NIS2", "DORA", "EU_AI_Act"],
+          "industry_best_practices": [
+            "NIST AI RMF Govern function",
+            "ISO/IEC 23053 AI governance",
+            "IEEE 2857 AI governance standard"
+          ]
+        },
+        "1.2_risk_management": {
+          "id": "1.2",
+          "name": "Risk Management",
+          "description": "Systematic methods that identify, evaluate, and manage AI risks for comprehensive risk governance across organizations",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Comprehensive AI risk identification",
+              "Systematic risk assessment methodology",
+              "Effective risk mitigation strategies",
+              "Continuous risk monitoring"
+            ],
+            "evaluation_criteria": [
+              "Risk management framework maturity",
+              "Risk identification completeness",
+              "Mitigation strategy effectiveness",
+              "Monitoring and reporting quality"
+            ],
+            "rfp_questions": [
+              "Describe your AI risk management methodology",
+              "How do you identify and assess AI risks?",
+              "What risk mitigation strategies do you employ?",
+              "How do you monitor and report on AI risks?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Incomplete risk identification",
+              "Inadequate risk assessment",
+              "Ineffective mitigation strategies",
+              "Poor risk monitoring"
+            ],
+            "mitigation_strategies": [
+              "Implement comprehensive risk framework",
+              "Conduct regular risk assessments",
+              "Develop targeted mitigation plans",
+              "Establish continuous monitoring"
+            ],
+            "compliance_evidence": [
+              "Risk management framework document",
+              "Risk register and assessments",
+              "Mitigation plans and status",
+              "Risk monitoring reports"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 4,
+            "impact": 4,
+            "score": 16,
+            "level": "high"
+          },
+          "regulatory_mapping": ["GDPR", "NIS2", "DORA", "EU_AI_Act"],
+          "industry_best_practices": [
+            "ISO 31000 risk management",
+            "NIST AI RMF",
+            "COSO ERM framework"
+          ]
+        },
+        "1.3_conflict_of_interest": {
+          "id": "1.3",
+          "name": "Conflict of Interest Protections",
+          "description": "Policies and procedures to identify, manage, and mitigate conflicts of interest in AI development and deployment",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Supplier conflicts affecting AI decisions",
+              "Bias in AI system recommendations",
+              "Transparency in supplier relationships",
+              "Independence of AI assessments"
+            ],
+            "evaluation_criteria": [
+              "Conflict of interest policies",
+              "Disclosure procedures",
+              "Independence measures",
+              "Bias mitigation controls"
+            ],
+            "rfp_questions": [
+              "How do you identify and manage conflicts of interest?",
+              "What relationships might bias your AI recommendations?",
+              "How do you ensure independence in AI assessments?",
+              "What disclosure requirements do you follow?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Undisclosed conflicts of interest",
+              "Biased AI recommendations",
+              "Compromised independence",
+              "Regulatory violations"
+            ],
+            "mitigation_strategies": [
+              "Implement conflict identification procedures",
+              "Establish disclosure requirements",
+              "Create independence safeguards",
+              "Regular conflict reviews"
+            ],
+            "compliance_evidence": [
+              "Conflict of interest policy",
+              "Disclosure registers",
+              "Independence certifications",
+              "Review procedures"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 2,
+            "impact": 3,
+            "score": 6,
+            "level": "low"
+          },
+          "regulatory_mapping": ["GDPR", "EU_AI_Act"],
+          "industry_best_practices": [
+            "Corporate governance standards",
+            "Professional ethics codes",
+            "Independence frameworks"
+          ]
+        },
+        "1.4_whistleblower_protection": {
+          "id": "1.4",
+          "name": "Whistleblower Reporting & Protection",
+          "description": "Systems and protections for reporting AI-related concerns, violations, or risks without retaliation",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Ability to report AI safety concerns",
+              "Protection from retaliation",
+              "Anonymous reporting channels",
+              "Investigation procedures"
+            ],
+            "evaluation_criteria": [
+              "Whistleblower policy existence",
+              "Reporting channel accessibility",
+              "Protection mechanisms",
+              "Investigation processes"
+            ],
+            "rfp_questions": [
+              "What whistleblower protections do you provide?",
+              "How can AI safety concerns be reported?",
+              "What investigation procedures do you follow?",
+              "How do you protect against retaliation?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Unreported AI safety issues",
+              "Retaliation against reporters",
+              "Legal compliance violations",
+              "Reputation damage"
+            ],
+            "mitigation_strategies": [
+              "Establish whistleblower policy",
+              "Create anonymous reporting channels",
+              "Implement protection measures",
+              "Train staff on procedures"
+            ],
+            "compliance_evidence": [
+              "Whistleblower policy",
+              "Reporting procedures",
+              "Protection measures",
+              "Training records"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 2,
+            "impact": 4,
+            "score": 8,
+            "level": "medium"
+          },
+          "regulatory_mapping": ["EU_AI_Act", "NIS2"],
+          "industry_best_practices": [
+            "EU Whistleblower Protection Directive",
+            "SOX whistleblower provisions",
+            "Industry reporting standards"
+          ]
+        },
+        "1.5_safety_decision_frameworks": {
+          "id": "1.5",
+          "name": "Safety Decision Frameworks",
+          "description": "Structured frameworks and processes for making safety-critical decisions about AI systems, including go/no-go gates and kill switches",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Clear safety decision criteria",
+              "Emergency stop procedures",
+              "Decision authority clarity",
+              "Safety override capabilities"
+            ],
+            "evaluation_criteria": [
+              "Safety framework completeness",
+              "Decision criteria clarity",
+              "Emergency procedures",
+              "Authority definitions"
+            ],
+            "rfp_questions": [
+              "What safety decision frameworks do you use?",
+              "How do you make go/no-go decisions for AI?",
+              "What emergency stop procedures exist?",
+              "Who has authority for safety decisions?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Inadequate safety frameworks",
+              "Unclear decision criteria",
+              "Missing emergency procedures",
+              "Safety incidents"
+            ],
+            "mitigation_strategies": [
+              "Develop comprehensive safety frameworks",
+              "Define clear decision criteria",
+              "Implement emergency procedures",
+              "Train decision makers"
+            ],
+            "compliance_evidence": [
+              "Safety decision framework",
+              "Decision criteria documentation",
+              "Emergency procedures",
+              "Training records"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 3,
+            "impact": 5,
+            "score": 15,
+            "level": "high"
+          },
+          "regulatory_mapping": ["EU_AI_Act", "NIS2"],
+          "industry_best_practices": [
+            "Safety-critical systems standards",
+            "Fail-safe design principles",
+            "Emergency response frameworks"
+          ]
+        },
+        "1.6_environmental_impact": {
+          "id": "1.6",
+          "name": "Environmental Impact Management",
+          "description": "Assessment and management of environmental impacts from AI systems, including energy consumption and carbon footprint",
+          "buyer_perspective": {
+            "key_concerns": [
+              "AI system energy consumption",
+              "Carbon footprint assessment",
+              "Environmental sustainability",
+              "Green AI practices"
+            ],
+            "evaluation_criteria": [
+              "Environmental impact assessment",
+              "Energy efficiency measures",
+              "Sustainability practices",
+              "Carbon reduction plans"
+            ],
+            "rfp_questions": [
+              "What is the environmental impact of your AI systems?",
+              "How do you measure and reduce energy consumption?",
+              "What sustainability practices do you follow?",
+              "How do you minimize carbon footprint?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "High energy consumption",
+              "Large carbon footprint",
+              "Environmental compliance issues",
+              "Sustainability reputation damage"
+            ],
+            "mitigation_strategies": [
+              "Conduct environmental impact assessments",
+              "Implement energy efficiency measures",
+              "Adopt green AI practices",
+              "Set carbon reduction targets"
+            ],
+            "compliance_evidence": [
+              "Environmental impact assessments",
+              "Energy consumption reports",
+              "Sustainability certifications",
+              "Carbon footprint calculations"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 3,
+            "impact": 2,
+            "score": 6,
+            "level": "low"
+          },
+          "regulatory_mapping": ["EU_AI_Act"],
+          "industry_best_practices": [
+            "Green AI initiatives",
+            "Carbon accounting standards",
+            "Energy efficiency frameworks"
+          ]
+        },
+        "1.7_societal_impact": {
+          "id": "1.7",
+          "name": "Societal Impact Assessment",
+          "description": "Evaluation and management of broader societal impacts from AI systems, including social, economic, and ethical considerations",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Broader societal implications",
+              "Social impact assessment",
+              "Ethical considerations",
+              "Community effects"
+            ],
+            "evaluation_criteria": [
+              "Societal impact assessment quality",
+              "Stakeholder engagement",
+              "Ethical review processes",
+              "Community consultation"
+            ],
+            "rfp_questions": [
+              "How do you assess societal impacts of AI?",
+              "What stakeholder engagement do you conduct?",
+              "How do you address ethical concerns?",
+              "What community consultation processes exist?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Negative societal impacts",
+              "Ethical violations",
+              "Community opposition",
+              "Reputation damage"
+            ],
+            "mitigation_strategies": [
+              "Conduct societal impact assessments",
+              "Engage with stakeholders",
+              "Implement ethical review processes",
+              "Consult with communities"
+            ],
+            "compliance_evidence": [
+              "Societal impact assessments",
+              "Stakeholder engagement records",
+              "Ethical review documentation",
+              "Community consultation reports"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 2,
+            "impact": 3,
+            "score": 6,
+            "level": "low"
+          },
+          "regulatory_mapping": ["EU_AI_Act", "GDPR"],
+          "industry_best_practices": [
+            "Social impact assessment frameworks",
+            "Ethical AI guidelines",
+            "Stakeholder engagement standards"
+          ]
+        }
+      }
+    },
+    "2_technical_security": {
+      "category_id": "2",
+      "name": "Technical & Security Controls",
+      "description": "Technical, physical, and engineering safeguards that secure AI systems and constrain model behaviors to ensure security, safety, alignment with human values, and content integrity",
+      "subcategories": {
+        "2.1_model_infrastructure_security": {
+          "id": "2.1",
+          "name": "Model & Infrastructure Security",
+          "description": "Technical security measures protecting AI models, training infrastructure, and deployment environments from threats and unauthorized access",
+          "buyer_perspective": {
+            "key_concerns": [
+              "AI model security vulnerabilities",
+              "Infrastructure protection",
+              "Access control effectiveness",
+              "Data protection in transit/rest"
+            ],
+            "evaluation_criteria": [
+              "Security architecture robustness",
+              "Access control implementation",
+              "Encryption standards",
+              "Vulnerability management"
+            ],
+            "rfp_questions": [
+              "How do you secure AI models and infrastructure?",
+              "What access controls are implemented?",
+              "How is data protected in transit and at rest?",
+              "What vulnerability management processes exist?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Model theft or unauthorized access",
+              "Infrastructure compromise",
+              "Data breaches",
+              "Security vulnerabilities"
+            ],
+            "mitigation_strategies": [
+              "Implement robust security architecture",
+              "Deploy strong access controls",
+              "Use encryption for data protection",
+              "Conduct regular security assessments"
+            ],
+            "compliance_evidence": [
+              "Security architecture documentation",
+              "Access control policies",
+              "Encryption implementation",
+              "Security assessment reports"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 4,
+            "impact": 4,
+            "score": 16,
+            "level": "high"
+          },
+          "regulatory_mapping": ["GDPR", "NIS2", "DORA"],
+          "industry_best_practices": [
+            "ISO 27001 information security",
+            "NIST Cybersecurity Framework",
+            "Cloud security standards"
+          ]
+        },
+        "2.2_model_alignment": {
+          "id": "2.2",
+          "name": "Model Alignment",
+          "description": "Techniques and methods to ensure AI models behave according to intended objectives and human values, including reward modeling and fine-tuning",
+          "buyer_perspective": {
+            "key_concerns": [
+              "AI behavior alignment with objectives",
+              "Value alignment with organization",
+              "Unintended model behaviors",
+              "Objective specification accuracy"
+            ],
+            "evaluation_criteria": [
+              "Alignment methodology quality",
+              "Value specification clarity",
+              "Behavior testing comprehensiveness",
+              "Alignment verification processes"
+            ],
+            "rfp_questions": [
+              "How do you ensure AI model alignment?",
+              "What alignment techniques do you use?",
+              "How do you test for unintended behaviors?",
+              "How do you verify value alignment?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Misaligned AI behavior",
+              "Unintended consequences",
+              "Value misalignment",
+              "Objective specification errors"
+            ],
+            "mitigation_strategies": [
+              "Implement alignment techniques",
+              "Conduct comprehensive behavior testing",
+              "Use value specification methods",
+              "Perform alignment verification"
+            ],
+            "compliance_evidence": [
+              "Alignment methodology documentation",
+              "Behavior testing results",
+              "Value specification documents",
+              "Alignment verification reports"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 3,
+            "impact": 4,
+            "score": 12,
+            "level": "medium"
+          },
+          "regulatory_mapping": ["EU_AI_Act"],
+          "industry_best_practices": [
+            "AI alignment research",
+            "Value learning techniques",
+            "Reward modeling standards"
+          ]
+        },
+        "2.3_model_safety_engineering": {
+          "id": "2.3",
+          "name": "Model Safety Engineering",
+          "description": "Software engineering practices and safety measures that harden AI models against failures, misuse, and unintended behaviors",
+          "buyer_perspective": {
+            "key_concerns": [
+              "AI system safety measures",
+              "Failure mode prevention",
+              "Safety testing adequacy",
+              "Robustness verification"
+            ],
+            "evaluation_criteria": [
+              "Safety engineering practices",
+              "Failure mode analysis",
+              "Safety testing coverage",
+              "Robustness measures"
+            ],
+            "rfp_questions": [
+              "What safety engineering practices do you follow?",
+              "How do you prevent AI system failures?",
+              "What safety testing do you conduct?",
+              "How do you ensure system robustness?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "AI system failures",
+              "Safety incidents",
+              "Inadequate robustness",
+              "Unhandled edge cases"
+            ],
+            "mitigation_strategies": [
+              "Implement safety engineering practices",
+              "Conduct failure mode analysis",
+              "Perform comprehensive safety testing",
+              "Build robustness measures"
+            ],
+            "compliance_evidence": [
+              "Safety engineering documentation",
+              "Failure mode analysis reports",
+              "Safety testing results",
+              "Robustness verification"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 3,
+            "impact": 5,
+            "score": 15,
+            "level": "high"
+          },
+          "regulatory_mapping": ["EU_AI_Act", "NIS2"],
+          "industry_best_practices": [
+            "Safety-critical systems engineering",
+            "Fault tree analysis",
+            "Hazard analysis methods"
+          ]
+        },
+        "2.4_content_safety_controls": {
+          "id": "2.4",
+          "name": "Content Safety Controls",
+          "description": "Measures to prevent generation or processing of harmful, inappropriate, or dangerous content by AI systems",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Harmful content generation",
+              "Content filtering effectiveness",
+              "Inappropriate outputs",
+              "Content safety monitoring"
+            ],
+            "evaluation_criteria": [
+              "Content safety measures",
+              "Filtering system effectiveness",
+              "Output monitoring quality",
+              "Safety policy compliance"
+            ],
+            "rfp_questions": [
+              "How do you prevent harmful content generation?",
+              "What content filtering systems exist?",
+              "How do you monitor AI outputs?",
+              "What content safety policies apply?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Harmful content generation",
+              "Content policy violations",
+              "Inappropriate outputs",
+              "Safety incidents"
+            ],
+            "mitigation_strategies": [
+              "Implement content safety controls",
+              "Deploy filtering systems",
+              "Monitor AI outputs",
+              "Enforce content policies"
+            ],
+            "compliance_evidence": [
+              "Content safety policies",
+              "Filtering system documentation",
+              "Output monitoring reports",
+              "Safety incident logs"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 3,
+            "impact": 4,
+            "score": 12,
+            "level": "medium"
+          },
+          "regulatory_mapping": ["EU_AI_Act", "GDPR"],
+          "industry_best_practices": [
+            "Content moderation standards",
+            "Safety filtering techniques",
+            "Output monitoring frameworks"
+          ]
+        }
+      }
+    },
+    "3_operational_process": {
+      "category_id": "3",
+      "name": "Operational Process Controls",
+      "description": "Processes and management frameworks governing AI system deployment, usage, monitoring, incident handling, and validation, which promote safety, security, and accountability throughout the system lifecycle",
+      "subcategories": {
+        "3.1_testing_auditing": {
+          "id": "3.1",
+          "name": "Testing & Auditing",
+          "description": "Systematic internal and external evaluations of AI systems including red teaming, benchmarks, audits, and bug bounties",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Testing comprehensiveness",
+              "Independent audit quality",
+              "Vulnerability identification",
+              "Performance validation"
+            ],
+            "evaluation_criteria": [
+              "Testing methodology rigor",
+              "Audit independence and scope",
+              "Vulnerability assessment quality",
+              "Performance benchmarking"
+            ],
+            "rfp_questions": [
+              "What testing methodologies do you employ?",
+              "How do you conduct independent audits?",
+              "What vulnerability assessments are performed?",
+              "How do you benchmark AI performance?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Inadequate testing coverage",
+              "Unidentified vulnerabilities",
+              "Performance issues",
+              "Audit findings"
+            ],
+            "mitigation_strategies": [
+              "Implement comprehensive testing",
+              "Conduct regular audits",
+              "Perform vulnerability assessments",
+              "Establish performance benchmarks"
+            ],
+            "compliance_evidence": [
+              "Testing procedures and results",
+              "Audit reports and findings",
+              "Vulnerability assessment reports",
+              "Performance benchmark data"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 4,
+            "impact": 3,
+            "score": 12,
+            "level": "medium"
+          },
+          "regulatory_mapping": ["EU_AI_Act", "NIS2", "DORA"],
+          "industry_best_practices": [
+            "AI red teaming methodologies",
+            "Penetration testing standards",
+            "Audit frameworks"
+          ]
+        },
+        "3.2_data_governance": {
+          "id": "3.2",
+          "name": "Data Governance",
+          "description": "Controls over data quality, provenance, labeling practices, lineage tracking, and data lifecycle management",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Data quality assurance",
+              "Data provenance tracking",
+              "Privacy compliance",
+              "Data lifecycle management"
+            ],
+            "evaluation_criteria": [
+              "Data governance framework",
+              "Quality assurance processes",
+              "Provenance documentation",
+              "Privacy protection measures"
+            ],
+            "rfp_questions": [
+              "How do you ensure data quality?",
+              "What data provenance tracking exists?",
+              "How do you protect data privacy?",
+              "What data governance policies apply?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Poor data quality",
+              "Data privacy violations",
+              "Compliance failures",
+              "Data lineage issues"
+            ],
+            "mitigation_strategies": [
+              "Implement data governance framework",
+              "Establish quality assurance processes",
+              "Track data provenance",
+              "Protect data privacy"
+            ],
+            "compliance_evidence": [
+              "Data governance policies",
+              "Quality assurance reports",
+              "Provenance documentation",
+              "Privacy compliance records"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 4,
+            "impact": 4,
+            "score": 16,
+            "level": "high"
+          },
+          "regulatory_mapping": ["GDPR", "EU_AI_Act", "DORA"],
+          "industry_best_practices": [
+            "Data management frameworks",
+            "Data quality standards",
+            "Privacy by design principles"
+          ]
+        },
+        "3.3_access_management": {
+          "id": "3.3",
+          "name": "Access Management",
+          "description": "Identity, authentication, and authorization safeguards for AI systems, code, data, and model endpoints",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Access control effectiveness",
+              "Identity management",
+              "Authorization accuracy",
+              "Privilege escalation prevention"
+            ],
+            "evaluation_criteria": [
+              "Access control implementation",
+              "Identity verification methods",
+              "Authorization mechanisms",
+              "Privilege management"
+            ],
+            "rfp_questions": [
+              "How do you control access to AI systems?",
+              "What identity management systems exist?",
+              "How do you manage user privileges?",
+              "What authorization mechanisms are used?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Unauthorized access",
+              "Identity theft",
+              "Privilege escalation",
+              "Access control failures"
+            ],
+            "mitigation_strategies": [
+              "Implement strong access controls",
+              "Deploy identity management systems",
+              "Manage user privileges",
+              "Monitor access activities"
+            ],
+            "compliance_evidence": [
+              "Access control policies",
+              "Identity management documentation",
+              "Privilege management records",
+              "Access monitoring logs"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 3,
+            "impact": 4,
+            "score": 12,
+            "level": "medium"
+          },
+          "regulatory_mapping": ["GDPR", "NIS2", "DORA"],
+          "industry_best_practices": [
+            "Zero trust architecture",
+            "Identity and access management",
+            "Privileged access management"
+          ]
+        },
+        "3.4_staged_deployment": {
+          "id": "3.4",
+          "name": "Staged Deployment",
+          "description": "Controlled rollout practices including canary releases, blue-green deployments, and deployment checklists",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Deployment risk management",
+              "Rollback capabilities",
+              "Performance monitoring",
+              "User impact minimization"
+            ],
+            "evaluation_criteria": [
+              "Deployment strategy quality",
+              "Risk mitigation measures",
+              "Monitoring capabilities",
+              "Rollback procedures"
+            ],
+            "rfp_questions": [
+              "What deployment strategies do you use?",
+              "How do you manage deployment risks?",
+              "What rollback capabilities exist?",
+              "How do you monitor deployments?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Deployment failures",
+              "Service disruptions",
+              "Performance degradation",
+              "User impact"
+            ],
+            "mitigation_strategies": [
+              "Use staged deployment approaches",
+              "Implement rollback procedures",
+              "Monitor deployment performance",
+              "Test deployment processes"
+            ],
+            "compliance_evidence": [
+              "Deployment procedures",
+              "Rollback documentation",
+              "Performance monitoring data",
+              "Deployment test results"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 3,
+            "impact": 3,
+            "score": 9,
+            "level": "medium"
+          },
+          "regulatory_mapping": ["NIS2", "DORA"],
+          "industry_best_practices": [
+            "DevOps deployment practices",
+            "Continuous deployment",
+            "Release management"
+          ]
+        },
+        "3.5_post_deployment_monitoring": {
+          "id": "3.5",
+          "name": "Post-Deployment Monitoring",
+          "description": "Continuous tracking of key metrics including drift detection, performance monitoring, and fairness assessment once systems are live",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Performance degradation detection",
+              "Model drift monitoring",
+              "Bias and fairness tracking",
+              "Real-time alerting"
+            ],
+            "evaluation_criteria": [
+              "Monitoring system comprehensiveness",
+              "Alert mechanism effectiveness",
+              "Drift detection accuracy",
+              "Performance tracking quality"
+            ],
+            "rfp_questions": [
+              "How do you monitor AI system performance?",
+              "What drift detection capabilities exist?",
+              "How do you track bias and fairness?",
+              "What alerting mechanisms are in place?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Undetected performance degradation",
+              "Model drift",
+              "Bias introduction",
+              "System failures"
+            ],
+            "mitigation_strategies": [
+              "Implement comprehensive monitoring",
+              "Deploy drift detection systems",
+              "Track bias and fairness metrics",
+              "Establish alerting mechanisms"
+            ],
+            "compliance_evidence": [
+              "Monitoring system documentation",
+              "Performance tracking reports",
+              "Drift detection logs",
+              "Bias assessment results"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 4,
+            "impact": 3,
+            "score": 12,
+            "level": "medium"
+          },
+          "regulatory_mapping": ["EU_AI_Act", "GDPR"],
+          "industry_best_practices": [
+            "MLOps monitoring practices",
+            "Model performance tracking",
+            "Fairness monitoring frameworks"
+          ]
+        },
+        "3.6_incident_response": {
+          "id": "3.6",
+          "name": "Incident Response & Recovery",
+          "description": "Playbooks and teams prepared to detect, investigate, and remediate AI failures, security incidents, or misuse",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Incident response readiness",
+              "Response time effectiveness",
+              "Recovery procedures",
+              "Communication protocols"
+            ],
+            "evaluation_criteria": [
+              "Incident response plan quality",
+              "Team readiness and training",
+              "Recovery time objectives",
+              "Communication procedures"
+            ],
+            "rfp_questions": [
+              "What incident response procedures exist?",
+              "How quickly can you respond to incidents?",
+              "What recovery capabilities do you have?",
+              "How do you communicate during incidents?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Delayed incident response",
+              "Inadequate recovery procedures",
+              "Poor communication",
+              "Extended downtime"
+            ],
+            "mitigation_strategies": [
+              "Develop incident response plans",
+              "Train response teams",
+              "Establish recovery procedures",
+              "Create communication protocols"
+            ],
+            "compliance_evidence": [
+              "Incident response plans",
+              "Team training records",
+              "Recovery procedures",
+              "Incident logs and reports"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 3,
+            "impact": 4,
+            "score": 12,
+            "level": "medium"
+          },
+          "regulatory_mapping": ["NIS2", "DORA", "GDPR"],
+          "industry_best_practices": [
+            "NIST incident response framework",
+            "ISO 27035 incident management",
+            "ITIL incident management"
+          ]
+        }
+      }
+    },
+    "4_transparency_accountability": {
+      "category_id": "4",
+      "name": "Transparency & Accountability Controls",
+      "description": "Formal disclosure practices and verification mechanisms that communicate AI system information and enable external scrutiny to build trust, facilitate oversight, and ensure accountability to users, regulators, and the public",
+      "subcategories": {
+        "4.1_system_documentation": {
+          "id": "4.1",
+          "name": "System Documentation",
+          "description": "Comprehensive documentation protocols covering model architectures, hyperparameters, training data, and decision rationale",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Documentation completeness",
+              "Technical detail adequacy",
+              "Accessibility and clarity",
+              "Maintenance and updates"
+            ],
+            "evaluation_criteria": [
+              "Documentation quality and depth",
+              "Technical accuracy",
+              "Clarity and accessibility",
+              "Update procedures"
+            ],
+            "rfp_questions": [
+              "What documentation do you provide for AI systems?",
+              "How detailed is your technical documentation?",
+              "How do you maintain documentation currency?",
+              "What formats are documentation available in?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Inadequate documentation",
+              "Outdated information",
+              "Compliance violations",
+              "User confusion"
+            ],
+            "mitigation_strategies": [
+              "Develop comprehensive documentation",
+              "Maintain documentation currency",
+              "Ensure technical accuracy",
+              "Provide multiple formats"
+            ],
+            "compliance_evidence": [
+              "System documentation packages",
+              "Technical specifications",
+              "User guides and manuals",
+              "Documentation update logs"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 3,
+            "impact": 2,
+            "score": 6,
+            "level": "low"
+          },
+          "regulatory_mapping": ["EU_AI_Act", "GDPR"],
+          "industry_best_practices": [
+            "Technical documentation standards",
+            "Model cards and datasheets",
+            "API documentation practices"
+          ]
+        },
+        "4.2_risk_disclosure": {
+          "id": "4.2",
+          "name": "Risk Disclosure",
+          "description": "Formal communication of known AI risks to stakeholders including risk registers, user warnings, and limitation statements",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Risk transparency",
+              "Disclosure completeness",
+              "Stakeholder communication",
+              "Risk understanding"
+            ],
+            "evaluation_criteria": [
+              "Risk disclosure quality",
+              "Stakeholder coverage",
+              "Communication clarity",
+              "Disclosure timeliness"
+            ],
+            "rfp_questions": [
+              "How do you disclose AI system risks?",
+              "What risks are communicated to users?",
+              "How do you ensure stakeholder understanding?",
+              "What disclosure formats do you use?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Inadequate risk disclosure",
+              "Stakeholder misunderstanding",
+              "Legal liability",
+              "Trust erosion"
+            ],
+            "mitigation_strategies": [
+              "Develop comprehensive risk disclosures",
+              "Communicate clearly to stakeholders",
+              "Provide multiple disclosure formats",
+              "Update disclosures regularly"
+            ],
+            "compliance_evidence": [
+              "Risk disclosure documents",
+              "Stakeholder communications",
+              "User warnings and notices",
+              "Disclosure update records"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 3,
+            "impact": 3,
+            "score": 9,
+            "level": "medium"
+          },
+          "regulatory_mapping": ["EU_AI_Act", "GDPR"],
+          "industry_best_practices": [
+            "Risk communication frameworks",
+            "Transparency reporting",
+            "Stakeholder engagement"
+          ]
+        },
+        "4.3_incident_reporting": {
+          "id": "4.3",
+          "name": "Incident Reporting",
+          "description": "Formal processes for reporting AI-related incidents to authorities, stakeholders, and affected parties",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Incident reporting timeliness",
+              "Reporting completeness",
+              "Regulatory compliance",
+              "Stakeholder notification"
+            ],
+            "evaluation_criteria": [
+              "Reporting procedure quality",
+              "Compliance with requirements",
+              "Timeliness of reporting",
+              "Stakeholder communication"
+            ],
+            "rfp_questions": [
+              "How do you report AI incidents?",
+              "What are your reporting timelines?",
+              "How do you ensure regulatory compliance?",
+              "How do you notify affected stakeholders?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Delayed incident reporting",
+              "Regulatory violations",
+              "Stakeholder impact",
+              "Legal consequences"
+            ],
+            "mitigation_strategies": [
+              "Establish incident reporting procedures",
+              "Ensure regulatory compliance",
+              "Implement timely reporting",
+              "Communicate with stakeholders"
+            ],
+            "compliance_evidence": [
+              "Incident reporting procedures",
+              "Regulatory filing records",
+              "Stakeholder notifications",
+              "Incident report templates"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 2,
+            "impact": 4,
+            "score": 8,
+            "level": "medium"
+          },
+          "regulatory_mapping": ["NIS2", "DORA", "GDPR", "EU_AI_Act"],
+          "industry_best_practices": [
+            "Incident reporting frameworks",
+            "Regulatory notification procedures",
+            "Crisis communication"
+          ]
+        },
+        "4.4_governance_disclosure": {
+          "id": "4.4",
+          "name": "Governance Disclosure",
+          "description": "Transparency about AI governance structures, policies, decision-making processes, and accountability mechanisms",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Governance transparency",
+              "Decision-making clarity",
+              "Accountability mechanisms",
+              "Policy accessibility"
+            ],
+            "evaluation_criteria": [
+              "Governance disclosure quality",
+              "Policy transparency",
+              "Decision process clarity",
+              "Accountability visibility"
+            ],
+            "rfp_questions": [
+              "How do you disclose AI governance structures?",
+              "What policies are publicly available?",
+              "How do you communicate decision processes?",
+              "What accountability mechanisms exist?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Governance opacity",
+              "Stakeholder distrust",
+              "Compliance issues",
+              "Accountability gaps"
+            ],
+            "mitigation_strategies": [
+              "Disclose governance structures",
+              "Publish relevant policies",
+              "Communicate decision processes",
+              "Establish accountability mechanisms"
+            ],
+            "compliance_evidence": [
+              "Governance disclosure documents",
+              "Published policies",
+              "Decision process documentation",
+              "Accountability frameworks"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 2,
+            "impact": 2,
+            "score": 4,
+            "level": "low"
+          },
+          "regulatory_mapping": ["EU_AI_Act"],
+          "industry_best_practices": [
+            "Corporate governance disclosure",
+            "Transparency reporting",
+            "Stakeholder communication"
+          ]
+        },
+        "4.5_third_party_access": {
+          "id": "4.5",
+          "name": "Third-Party System Access",
+          "description": "Providing regulators, auditors, or customers with tailored access to AI systems for verification and assurance purposes",
+          "buyer_perspective": {
+            "key_concerns": [
+              "Audit access availability",
+              "Verification capabilities",
+              "Regulatory compliance",
+              "Third-party validation"
+            ],
+            "evaluation_criteria": [
+              "Access provision quality",
+              "Verification support",
+              "Compliance facilitation",
+              "Third-party accommodation"
+            ],
+            "rfp_questions": [
+              "What third-party access do you provide?",
+              "How do you support audits and verification?",
+              "What regulatory access is available?",
+              "How do you facilitate third-party validation?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "Inadequate access provision",
+              "Audit failures",
+              "Regulatory non-compliance",
+              "Verification issues"
+            ],
+            "mitigation_strategies": [
+              "Provide appropriate third-party access",
+              "Support audit activities",
+              "Facilitate regulatory compliance",
+              "Enable third-party validation"
+            ],
+            "compliance_evidence": [
+              "Access provision procedures",
+              "Audit support documentation",
+              "Regulatory compliance records",
+              "Third-party validation reports"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 2,
+            "impact": 3,
+            "score": 6,
+            "level": "low"
+          },
+          "regulatory_mapping": ["EU_AI_Act", "DORA"],
+          "industry_best_practices": [
+            "Audit facilitation frameworks",
+            "Regulatory cooperation",
+            "Third-party validation"
+          ]
+        },
+        "4.6_user_rights_recourse": {
+          "id": "4.6",
+          "name": "User Rights & Recourse",
+          "description": "Mechanisms for users to understand, challenge, and seek recourse regarding AI system decisions and impacts",
+          "buyer_perspective": {
+            "key_concerns": [
+              "User rights protection",
+              "Recourse mechanisms",
+              "Decision explainability",
+              "Appeal processes"
+            ],
+            "evaluation_criteria": [
+              "User rights implementation",
+              "Recourse availability",
+              "Explanation quality",
+              "Appeal process effectiveness"
+            ],
+            "rfp_questions": [
+              "What user rights do you protect?",
+              "What recourse mechanisms exist?",
+              "How do you explain AI decisions?",
+              "What appeal processes are available?"
+            ]
+          },
+          "supplier_perspective": {
+            "key_risks": [
+              "User rights violations",
+              "Inadequate recourse",
+              "Legal challenges",
+              "Trust erosion"
+            ],
+            "mitigation_strategies": [
+              "Implement user rights protections",
+              "Provide recourse mechanisms",
+              "Enable decision explanations",
+              "Establish appeal processes"
+            ],
+            "compliance_evidence": [
+              "User rights policies",
+              "Recourse procedures",
+              "Explanation capabilities",
+              "Appeal process documentation"
+            ]
+          },
+          "typical_risk_score": {
+            "likelihood": 2,
+            "impact": 3,
+            "score": 6,
+            "level": "low"
+          },
+          "regulatory_mapping": ["GDPR", "EU_AI_Act"],
+          "industry_best_practices": [
+            "User rights frameworks",
+            "Algorithmic accountability",
+            "Explainable AI practices"
+          ]
+        }
+      }
+    }
+  },
+  "industry_frameworks": {
+    "NIST_AI_RMF": {
+      "name": "NIST AI Risk Management Framework",
+      "version": "1.0",
+      "functions": ["Govern", "Map", "Measure", "Manage"],
+      "mapping_to_taxonomy": {
+        "Govern": ["1_governance_oversight"],
+        "Map": ["3.1_testing_auditing", "3.2_data_governance"],
+        "Measure": ["3.5_post_deployment_monitoring", "3.1_testing_auditing"],
+        "Manage": ["1.2_risk_management", "3.6_incident_response"]
+      }
+    },
+    "ISO_31000": {
+      "name": "ISO 31000 Risk Management",
+      "version": "2018",
+      "principles": ["Integrated", "Structured", "Customized", "Inclusive", "Dynamic", "Best available information", "Human factors", "Continual improvement"],
+      "process": ["Communication", "Scope establishment", "Risk assessment", "Risk treatment", "Monitoring and review"]
+    },
+    "EU_AI_Act": {
+      "name": "EU Artificial Intelligence Act",
+      "risk_categories": ["Unacceptable", "High", "Limited", "Minimal"],
+      "key_requirements": ["Risk management systems", "Data governance", "Transparency", "Human oversight", "Accuracy and robustness"]
+    }
+  },
+  "rfp_templates": {
+    "buyer_evaluation_matrix": {
+      "governance_oversight": {
+        "weight": 25,
+        "criteria": [
+          "AI governance structure maturity",
+          "Risk management framework completeness",
+          "Board oversight effectiveness",
+          "Policy framework adequacy"
+        ]
+      },
+      "technical_security": {
+        "weight": 30,
+        "criteria": [
+          "Security architecture robustness",
+          "Model safety measures",
+          "Infrastructure protection",
+          "Content safety controls"
+        ]
+      },
+      "operational_process": {
+        "weight": 30,
+        "criteria": [
+          "Testing and auditing rigor",
+          "Data governance quality",
+          "Monitoring capabilities",
+          "Incident response readiness"
+        ]
+      },
+      "transparency_accountability": {
+        "weight": 15,
+        "criteria": [
+          "Documentation quality",
+          "Risk disclosure completeness",
+          "Stakeholder communication",
+          "User rights protection"
+        ]
+      }
+    },
+    "supplier_response_template": {
+      "executive_summary": "Brief overview of AI risk management approach",
+      "governance_structure": "Description of AI governance and oversight",
+      "risk_assessment": "Comprehensive risk identification and assessment",
+      "mitigation_strategies": "Detailed mitigation plans and controls",
+      "monitoring_reporting": "Ongoing monitoring and reporting capabilities",
+      "compliance_evidence": "Documentation and evidence of compliance",
+      "references_case_studies": "Relevant experience and case studies"
+    }
+  }
+}

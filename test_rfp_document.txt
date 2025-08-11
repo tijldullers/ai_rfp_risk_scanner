@@ -1,0 +1,23 @@
+AI RFP Test Document
+
+This is a test document for AI risk analysis containing:
+
+1. Data Privacy Requirements:
+- Personal data processing with GDPR compliance required
+- Consent mechanisms must be implemented
+- Data protection by design and default
+
+2. AI System Requirements:
+- Machine learning model deployment
+- Algorithmic decision making processes  
+- Bias detection and fairness measures
+
+3. Security Requirements:
+- Cybersecurity vulnerability assessment
+- Network security and access controls
+- Data encryption and secure storage
+
+4. Compliance Requirements:
+- EU AI Act compliance framework
+- GDPR data protection regulations
+- Industry-specific regulatory standards

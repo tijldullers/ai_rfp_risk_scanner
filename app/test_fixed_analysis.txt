@@ -1,0 +1,20 @@
+
+AI Risk Assessment Test Document
+
+This RFP requests the implementation of an AI-powered customer service chatbot system that will handle customer inquiries, process personal data, and make automated decisions regarding customer support escalation.
+
+Key Requirements:
+- Process customer personal information including names, email addresses, and support history
+- Implement machine learning algorithms for sentiment analysis and intent recognition  
+- Provide automated responses to common customer queries
+- Integrate with existing CRM systems and databases
+- Ensure GDPR compliance for EU customers
+- Implement cybersecurity measures to protect customer data
+- Establish governance framework for AI decision-making
+- Meet regulatory compliance requirements including EU AI Act
+- Manage operational risks during system deployment
+- Address financial and commercial considerations
+- Ensure ethical AI practices and bias mitigation
+- Plan comprehensive implementation and change management strategy
+
+This test document should trigger comprehensive analysis across all risk categories.
