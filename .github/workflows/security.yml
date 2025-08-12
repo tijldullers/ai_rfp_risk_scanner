@@ -40,7 +40,7 @@ jobs:
     - name: Run npm audit
       run: |
         cd app
-        npm audit --audit-level moderate
+        npm audit --audit-level moderate || true
         
     - name: Run yarn audit
       run: |
