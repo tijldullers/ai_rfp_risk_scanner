@@ -50,12 +50,32 @@ The system analyzes risks across comprehensive categories including:
 
 ### Prerequisites
 
+**Option 1: Docker (Recommended)** 🐳
+- Docker & Docker Compose
+- Git
+
+**Option 2: Local Development**
 - Node.js 18+ and yarn
 - PostgreSQL database
 - Git
 
-### Development Environment Setup
+### Setup Options
 
+#### Docker Setup (Recommended)
+```bash
+# Clone the Repository
+git clone <your-repo-url>
+cd ai_rfp_risk_scanner
+
+# Start with Docker (includes database)
+make docker-start
+# or use the script directly
+./scripts/docker-start.sh
+```
+
+The application will be available at `http://localhost:3000` with PostgreSQL automatically configured.
+
+#### Local Development Setup
 1. **Clone the Repository**
    ```bash
    git clone <your-repo-url>
@@ -307,3 +327,32 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ---
 
 **Built with ❤️ using Next.js, TypeScript, PostgreSQL, and AI-powered analysis**
+
+## 🐳 Docker Support
+
+This application includes comprehensive Docker support for easy deployment and development.
+
+### Quick Commands
+
+```bash
+make docker-start    # Start production environment
+make docker-dev      # Start development environment
+make docker-stop     # Stop all containers
+make docker-clean    # Clean up Docker resources
+make docker-logs     # View container logs
+```
+
+### Documentation
+
+- [Docker Setup Guide](./README.Docker.md) - Comprehensive Docker documentation
+- [Docker Setup Summary](./DOCKER_SETUP_SUMMARY.md) - Quick overview of Docker features
+
+### Features
+
+- 🚀 Production-ready multi-stage builds
+- 🔧 Development environment with hot reload
+- 🗄️ PostgreSQL database included
+- 🔒 Security best practices
+- 📊 Health checks and monitoring
+- 🤖 GitHub Actions CI/CD integration
+

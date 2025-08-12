@@ -1,19 +1,8 @@
 
-# GitHub Dependabot configuration for automated dependency updates
-# This helps keep your dependencies secure and up-to-date
-
 version: 2
-updates:
-  # Update GitHub Actions dependencies
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    commit-message:
-      prefix: "ci"
-      include: "scope"
 
-  # Update npm dependencies in the main app
+updates:
+  # Enable version updates for npm (Node.js dependencies)
   - package-ecosystem: "npm"
     directory: "/app"
     schedule:
@@ -21,21 +10,29 @@ updates:
       day: "monday"
       time: "09:00"
     open-pull-requests-limit: 10
-    commit-message:
-      prefix: "deps"
-      include: "scope"
     reviewers:
-      - "yourusername"  # Replace with your GitHub username
+      - "@yourusername"
     assignees:
-      - "yourusername"  # Replace with your GitHub username
-    labels:
-      - "dependencies"
-      - "security"
-    allow:
-      - dependency-type: "direct"
-      - dependency-type: "indirect"
+      - "@yourusername"
+    commit-message:
+      prefix: "npm"
+      prefix-development: "npm-dev"
+      include: "scope"
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+        update-types:
+          - "minor"
+          - "patch"
+      development-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
     ignore:
-      # Ignore major version updates for stable dependencies
+      # Ignore major version updates for stable packages
+      - dependency-name: "@types/*"
+        update-types: ["version-update:semver-major"]
       - dependency-name: "react"
         update-types: ["version-update:semver-major"]
       - dependency-name: "react-dom"
@@ -43,26 +40,35 @@ updates:
       - dependency-name: "next"
         update-types: ["version-update:semver-major"]
 
-  # Update root-level npm dependencies
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    commit-message:
-      prefix: "deps"
-      include: "scope"
-    labels:
-      - "dependencies"
-      - "root"
-
-  # Update Docker dependencies (if using Docker)
+  # Enable version updates for Docker
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
+      day: "tuesday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "@yourusername"
+    assignees:
+      - "@yourusername"
     commit-message:
       prefix: "docker"
       include: "scope"
-    labels:
-      - "docker"
-      - "dependencies"
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "@yourusername"
+    assignees:
+      - "@yourusername"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+

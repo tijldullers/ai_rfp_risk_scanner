@@ -1,0 +1,30 @@
+
+# Development Dockerfile for Next.js application
+FROM node:18-alpine AS base
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+FROM base AS development
+# Install dependencies
+COPY package.json yarn.lock* ./
+COPY app/package.json ./app/
+RUN yarn install
+
+# Copy source code
+COPY . .
+
+# Generate Prisma client
+WORKDIR /app/app
+RUN npx prisma generate
+
+# Expose port
+EXPOSE 3000
+
+# Set environment variables
+ENV NODE_ENV=development
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+
+# Start development server
+CMD ["yarn", "dev"]
+
