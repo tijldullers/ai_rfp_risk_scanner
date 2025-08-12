@@ -80,7 +80,7 @@ export function EmailVerificationModal({ isOpen, onClose, reportId }: EmailVerif
                 disabled={isSubmitting}
               />
               <p className="text-xs text-gray-600">
-                We'll send you a verification link to access the complete risk assessment report including detailed analysis and PDF download.
+                We&apos;ll send you a verification link to access the complete risk assessment report including detailed analysis and PDF download.
               </p>
             </div>
 
@@ -118,7 +118,7 @@ export function EmailVerificationModal({ isOpen, onClose, reportId }: EmailVerif
               Verification Email Sent!
             </h3>
             <p className="text-gray-600 mb-6">
-              We've sent a verification link to <strong>{email}</strong>. 
+              We&apos;ve sent a verification link to <strong>{email}</strong>. 
               Check your inbox and click the link to access your full report.
             </p>
             <Button onClick={handleClose}>
