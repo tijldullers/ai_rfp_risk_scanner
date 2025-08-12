@@ -7,7 +7,8 @@
     "build": "NODE_OPTIONS='--max-old-space-size=4096' next build",
     "start": "NODE_OPTIONS='--max-old-space-size=4096 --expose-gc' next start",
     "start:production": "NODE_OPTIONS='--max-old-space-size=4096 --expose-gc' next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "echo 'Tests will be implemented in the future' && exit 0"
   },
   "prisma": {
     "seed": "tsx --require dotenv/config scripts/seed.ts"
