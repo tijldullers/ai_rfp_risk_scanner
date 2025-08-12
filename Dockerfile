@@ -5,20 +5,20 @@ FROM node:18-alpine AS base
 # Install dependencies only when needed
 FROM base AS deps
 RUN apk add --no-cache libc6-compat
+RUN corepack enable
+
 WORKDIR /app
 
-# Copy package files (use npm instead of yarn to avoid workspace conflicts)
-COPY app/package.json ./app/
+# Copy package files
+COPY app/package.json app/yarn.lock ./app/
 
-# Remove any conflicting lock files and install with npm instead 
-RUN rm -f app/yarn.lock app/package-lock.json
-
-# Install app dependencies with npm (more reliable in Docker)
+# Install app dependencies with yarn
 WORKDIR /app/app
-RUN npm install --production=false
+RUN yarn install --frozen-lockfile
 
 # Rebuild the source code only when needed
 FROM base AS builder
+RUN corepack enable
 WORKDIR /app
 COPY --from=deps /app/app/node_modules ./app/node_modules
 COPY . .
@@ -30,10 +30,11 @@ ENV NODE_OPTIONS="--max-old-space-size=4096"
 
 # Generate Prisma client in the app directory
 WORKDIR /app/app
-RUN npx prisma generate
+ENV DATABASE_URL="postgresql://user:password@localhost:5432/temp"
+RUN yarn prisma generate
 
 # Build the application
-RUN npm run build
+RUN yarn build
 
 # Production image, copy all the files and run next
 FROM base AS runner
@@ -71,4 +72,3 @@ ENV HOSTNAME="0.0.0.0"
 
 # Start the application
 CMD ["node", "app/server.js"]
-

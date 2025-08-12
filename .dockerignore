@@ -125,3 +125,6 @@ validation*.log
 package-lock.json
 */package-lock.json
 
+# But keep yarn.lock
+!app/yarn.lock
+
