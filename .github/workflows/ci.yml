@@ -33,6 +33,8 @@ jobs:
         yarn install --frozen-lockfile
         
     - name: Generate Prisma client
+      env:
+        DATABASE_URL: "postgresql://user:password@localhost:5432/temp"
       run: |
         cd app
         npx prisma generate
@@ -88,6 +90,8 @@ jobs:
         echo "DATABASE_URL=postgresql://postgres:postgres@localhost:5432/ai_rfp_scanner_test" >> .env.test
         
     - name: Generate Prisma client and run migrations
+      env:
+        DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/ai_rfp_scanner_test"
       run: |
         cd app
         npx prisma generate
@@ -128,6 +132,8 @@ jobs:
         yarn install --frozen-lockfile
         
     - name: Generate Prisma client
+      env:
+        DATABASE_URL: "postgresql://user:password@localhost:5432/temp"
       run: |
         cd app
         npx prisma generate
