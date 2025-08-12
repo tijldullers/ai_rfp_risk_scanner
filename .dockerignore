@@ -121,3 +121,7 @@ prisma*.log
 validation*.log
 *.sql
 
+# Package manager lock files (prevent conflicts)
+package-lock.json
+*/package-lock.json
+
