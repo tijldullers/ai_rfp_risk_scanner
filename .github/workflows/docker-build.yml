@@ -68,7 +68,7 @@ jobs:
           -e DATABASE_URL=postgresql://test:test@localhost:5432/test \
           -e NEXTAUTH_URL=http://localhost:3000 \
           -e NEXTAUTH_SECRET=test-secret \
-          ${{ steps.meta.outputs.tags }} || true
+        $(echo "${{ steps.meta.outputs.tags }}" | cut -d',' -f1) || true
         sleep 10
         docker logs test-app || true
         docker stop test-app || true
